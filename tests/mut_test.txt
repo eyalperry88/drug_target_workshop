@@ -1,0 +1,3 @@
+GENE	PATIENT	TISSUE	DISEASE	MUTATION_TYPE	STATUS
+GENE1	TCGA-AB-2963-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+GENE2	TCGA-AB-3005-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
