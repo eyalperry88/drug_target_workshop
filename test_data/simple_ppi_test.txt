@@ -1,0 +1,2 @@
+GENE1 	 GENE3 	1
+GENE2 	 GENE3 	1

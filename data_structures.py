@@ -20,7 +20,7 @@ class DTWGraph:
         self.nodes = {}
         self.weights = {}
 
-    def addNode(self, gene_id, pr_value=0, mutation_type='None', expression_level='Normal'):
+    def addNode(self, gene_id, pr_value=0, mutation_type=None, expression_level=None):
         node = DTWNode(pr_value, mutation_type, expression_level)
         self.nodes[gene_id] = node
 
@@ -51,6 +51,9 @@ class DTWGraph:
         if key in self.weights:
             return self.weights.get(key)
         raise KeyError('EdgeWeight')
+
+    def normalizeWeights(self):
+        pass
 
     
 
