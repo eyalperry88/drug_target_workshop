@@ -1,9 +1,9 @@
+import numpy as np
 
 class DTWNode:
     'Node in the DTW graph'
 
-    def __init__(self, pr_value, mutation_type, expression_level):
-        self.pr_value = pr_value
+    def __init__(self, mutation_type, expression_level):
         self.mutation_type = mutation_type
         self.expression_level = expression_level
         self.neighbors = []
@@ -20,8 +20,8 @@ class DTWGraph:
         self.nodes = {}
         self.weights = {}
 
-    def addNode(self, gene_id, pr_value=0, mutation_type=None, expression_level=None):
-        node = DTWNode(pr_value, mutation_type, expression_level)
+    def addNode(self, gene_id, mutation_type=None, expression_level=None):
+        node = DTWNode(mutation_type, expression_level)
         self.nodes[gene_id] = node
 
     def addEdge(self, gene1, gene2, weight):
@@ -29,7 +29,7 @@ class DTWGraph:
         node1.addNeighbor(gene2)
         node2 = self.nodes[gene2]
         node2.addNeighbor(gene1)
-        self.weights[tuple(sorted((gene1, gene2)))] = weight
+        self.setEdgeWeight(gene1, gene2, weight)
 
     def removeNode(self, gene_id):
         node = self.nodes[gene_id]
@@ -51,16 +51,28 @@ class DTWGraph:
         if key in self.weights:
             return self.weights.get(key)
         raise KeyError('EdgeWeight')
+        
+    def setEdgeWeight(self, gene1, gene2, weight):
+        self.weights[tuple(sorted((gene1, gene2)))] = weight
 
     def normalizeWeights(self):
-        pass
-
-    
-
-    
-                
-
-    
-    
-
-    
+        n = len(self.nodes)
+        node_to_idx = {}
+        i = 0
+        for node in self.nodes:
+            node_to_idx[node] = i
+            i += 1
+        sum_vec = np.zeros(n)
+        for node in self.nodes:
+            for neighbor in self.nodes[node].neighbors:
+                sum_vec[node_to_idx[node]] += self.getEdgeWeight(node, neighbor)
+        print(sum_vec)
+        sum_vec = np.reciprocal(np.sqrt(sum_vec))
+        print(sum_vec)
+        new_weights = {}
+        for node in self.nodes:
+            for neighbor in self.nodes[node].neighbors:
+                new_w = sum_vec[node_to_idx[node]] * self.getEdgeWeight(node, neighbor) * sum_vec[node_to_idx[neighbor]]
+                new_weights[tuple(sorted((node, neighbor)))] = new_w
+        for key in new_weights:
+            self.weights[key] = new_weights[key]
