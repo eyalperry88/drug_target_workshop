@@ -1,15 +1,6 @@
 from data_structures import *
 
 'reading and parsing data helpers'
-
-def loadGenes(filename, graph):
-    file = open(filename, 'r')
-    count = 0
-    for line in file:
-        graph.addNode(line.strip())
-        count += 1
-    print('Loaded ' + str(count) + ' genes.')
-    file.close()
     
 def loadExpressionData(filename, graph, patient): #add option to do it by patient?
     file = open(filename, 'r')
@@ -39,12 +30,17 @@ def loadMutationData(filename, graph, patient): #same...
 
 def loadPPIData(filename, graph):
     file = open(filename, 'r')
-    count = 0
+    count_nodes = 0
+    count_edges = 0
     for line in file:
         gene_data = line.strip().split('\t')
         if len(gene_data) != 3 or float(gene_data[2]) == 0:
             continue
-        count += 1
+        for gene_id in [gene_data[0].strip(), gene_data[1].strip()]:
+            if gene_id not in graph.nodes:
+                graph.addNode(gene_id)
+                count_nodes += 1
+        count_edges += 1
         graph.addEdge(gene_data[0].strip(), gene_data[1].strip(), float(gene_data[2]))
-    print('Loaded ' + str(count) + ' edges.')
+    print('Loaded', count_nodes, 'nodes and', count_edges, 'edges.')
     file.close()

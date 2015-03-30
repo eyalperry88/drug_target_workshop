@@ -3,10 +3,10 @@ from propagation import *
 
 def runTest():
     g = DTWGraph()
-    loadGenes("test_data/genes_test.txt", g)
+    loadPPIData("test_data/simple_ppi_test.txt", g)
     loadExpressionData("test_data/exp_test.txt", g, "TCGA-AB-2803-03")
     loadMutationData("test_data/mut_test.txt", g, "TCGA-AB-2963-03")
-    loadPPIData("test_data/simple_ppi_test.txt", g)
+    
     
     scores = propagate(g, 'GE', 1, 0.5)
     assert(scores["GENE1"] == 0.5)
