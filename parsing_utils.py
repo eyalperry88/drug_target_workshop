@@ -14,6 +14,7 @@ def loadExpressionData(filename, graph, patient): #add option to do it by patien
             count += 1
     print('Loaded ' + str(count) + ' differentially expressed genes.')
     file.close()
+    return count
 
 def loadMutationData(filename, graph, patient): #same...
     file = open(filename, 'r')
@@ -27,6 +28,7 @@ def loadMutationData(filename, graph, patient): #same...
             count += 1
     print('Loaded ' + str(count) + ' mutated genes.')
     file.close()
+    return count
 
 def loadPPIData(filename, graph):
     file = open(filename, 'r')
@@ -42,5 +44,5 @@ def loadPPIData(filename, graph):
                 count_nodes += 1
         count_edges += 1
         graph.addEdge(gene_data[0].strip(), gene_data[1].strip(), float(gene_data[2]))
-    print('Loaded', count_nodes, 'nodes and', count_edges, 'edges.')
+    print('Loaded ' + str(count_nodes) + ' nodes and ' + str(count_edges) + ' edges.')
     file.close()
