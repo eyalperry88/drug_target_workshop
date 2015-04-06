@@ -74,3 +74,8 @@ class DTWGraph:
                 new_weights[tuple(sorted((node, neighbor)))] = new_w
         for key in new_weights:
             self.weights[key] = new_weights[key]
+
+    def initGraph(self):
+        for node in self.nodes:
+            node[mutation_type] = None
+            node[expression_level] = None
