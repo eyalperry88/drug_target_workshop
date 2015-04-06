@@ -66,7 +66,9 @@ class DTWGraph:
         for node in self.nodes:
             for neighbor in self.nodes[node].neighbors:
                 sum_vec[node_to_idx[node]] += self.getEdgeWeight(node, neighbor)
+        print(sum_vec)
         sum_vec = np.reciprocal(np.sqrt(sum_vec))
+        print(sum_vec)
         new_weights = {}
         for node in self.nodes:
             for neighbor in self.nodes[node].neighbors:
@@ -77,5 +79,5 @@ class DTWGraph:
 
     def initGraph(self):
         for node in self.nodes:
-            node[mutation_type] = None
-            node[expression_level] = None
+            self.nodes[node].mutation_type = None
+            self.nodes[node].expression_level = None

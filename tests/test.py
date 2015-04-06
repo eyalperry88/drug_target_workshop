@@ -18,5 +18,10 @@ def runTest():
     print(g.weights)
     g.removeEdge("GENE2", "GENE3")
     assert(len(g.nodes["GENE2"].neighbors) == 0)
+    g.nodes["GENE2"].mutation_type = "some_type"
+    g.nodes["GENE2"].expression_level = "some_exp"
+    g.initGraph()
+    assert(g.nodes["GENE2"].mutation_type == None)
+    assert(g.nodes["GENE2"].expression_level == None)
     
     
