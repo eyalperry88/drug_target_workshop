@@ -8,15 +8,15 @@ def runTest():
     loadMutationData("test_data/mut_test.txt", g, "TCGA-AB-2963-03")
     
     
-    scores = propagate(g, 'GE', 1, 0.5)
+    scores = propagate(g, 'GE', ALPHA = 0.5)
     assert(scores["GENE1"] == 0.5)
     assert(scores["GENE2"] == 0.5)
     assert(scores["GENE3"] == 0)
-    scores = propagate(g, 'GE', 2, 0.5)
+    scores = propagate(g, 'GE', ALPHA = 0.5)
     assert(scores["GENE1"] == 0.5)
     assert(scores["GENE2"] == 0.5)
     assert(scores["GENE3"] == 0.5)
-    scores = propagate(g, 'GE', 3, 0.5)
+    scores = propagate(g, 'GE', ALPHA = 0.5)
     assert(scores["GENE1"] == 0.75)
     assert(scores["GENE2"] == 0.75)
     assert(scores["GENE3"] == 0.5)

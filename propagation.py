@@ -1,6 +1,6 @@
 
 
-def propagate(g, prior, ITERATIONS = 10, ALPHA = 0.75):
+def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.75):
     prior_knowledge = {}
     
     # fill prior knowledge by GE
@@ -34,7 +34,7 @@ def propagate(g, prior, ITERATIONS = 10, ALPHA = 0.75):
         propagation_scores = new_propagation_scores.copy()
         
         # print('Dist^2 after ' + str(iterations) + ' is ' + str(summ))
-        if (summ < 0.0001):
+        if (summ < EPSILON):
             print('Converged after ' + str(iterations) + ' iterations')
             break
         iterations += 1
