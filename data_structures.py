@@ -7,13 +7,13 @@ class DTWNode:
     def __init__(self, mutation_type, expression_level):
         self.mutation_type = mutation_type
         self.expression_level = expression_level
-        self.neighbors = []
+        self.neighbors = {}
 
-    def addNeighbor(self, gene_id):
-        self.neighbors.append(gene_id)
+    def addNeighbor(self, gene_id, weight):
+        self.neighbors[gene_id] = weight
 
     def removeNeighbor(self, gene_id):
-        self.neighbors.remove(gene_id)
+        del self.neighbors[gene_id]
 
 class DTWGraph:
 
@@ -27,9 +27,9 @@ class DTWGraph:
 
     def addEdge(self, gene1, gene2, weight):
         node1 = self.nodes[gene1]
-        node1.addNeighbor(gene2)
+        node1.addNeighbor(gene2, weight)
         node2 = self.nodes[gene2]
-        node2.addNeighbor(gene1)
+        node2.addNeighbor(gene1, weight)
         self.setEdgeWeight(gene1, gene2, weight)
 
     def removeNode(self, gene_id):
@@ -55,6 +55,7 @@ class DTWGraph:
         
     def setEdgeWeight(self, gene1, gene2, weight):
         self.weights[tuple(sorted((gene1, gene2)))] = weight
+        
 
     def normalizeWeights(self):
         n = len(self.nodes)
@@ -75,6 +76,9 @@ class DTWGraph:
                 new_weights[tuple(sorted((node, neighbor)))] = new_w
         for key in new_weights:
             self.weights[key] = new_weights[key]
+            self.nodes[key[0]].neighbors[key[1]] = new_weights[key]
+            self.nodes[key[1]].neighbors[key[0]] = new_weights[key]
+
 
     def initGraph(self):
         for node in self.nodes:

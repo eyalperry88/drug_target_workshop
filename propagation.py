@@ -1,17 +1,26 @@
+import time
 
+times = {'prior_time' : 0,
+'copy_time' : 0,
+'propogate_time' : 0,
+'converge_time' : 0}
 
 def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.75):
+    global times
+    
     prior_knowledge = {}
     
     # fill prior knowledge by GE
     # differentially expressed -> Y = 1
+    start = time.clock()
     count_prop_start = 0
     for node in g.nodes:
         if (g.nodes[node].expression_level if prior == 'GE' else g.nodes[node].mutation_type) != None:
-            prior_knowledge[node] = 1
+            prior_knowledge[node] = (1 - ALPHA)
             count_prop_start += 1
         else:
             prior_knowledge[node] = 0
+    times['prior_time'] += (time.clock() - start)
 
     print(str(count_prop_start) + ' initial genes out of ' + str(len(g.nodes)))
 
@@ -21,17 +30,27 @@ def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.75):
 
     iterations = 1
     while True:
+        start = time.clock()
         new_propagation_scores = propagation_scores.copy()
+        times['copy_time'] += (time.clock() - start)
+        
+        start = time.clock()
         for node in propagation_scores:
             summ = 0
-            for neighbor in g.nodes[node].neighbors:
-                summ += (propagation_scores[neighbor] * g.getEdgeWeight(node, neighbor))
-            new_propagation_scores[node] = ALPHA * summ + (1 - ALPHA) * prior_knowledge[node]
+            for neighbor, w in g.nodes[node].neighbors.items():
+                summ += (propagation_scores[neighbor] * w)
+            new_propagation_scores[node] = ALPHA * summ + prior_knowledge[node]
+        times['propogate_time'] += (time.clock() - start)
         
+        start = time.clock()
         summ = 0
         for node in propagation_scores:
             summ += (propagation_scores[node] - new_propagation_scores[node]) ** 2
+        times['converge_time'] += (time.clock() - start)
+        
+        start = time.clock()
         propagation_scores = new_propagation_scores.copy()
+        times['copy_time'] += (time.clock() - start)
         
         # print('Dist^2 after ' + str(iterations) + ' is ' + str(summ))
         if (summ < EPSILON):
