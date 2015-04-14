@@ -112,7 +112,7 @@ for patient in patients:
         # results_avg[patient][gene] = (GEscores[gene] + MTscores[gene]) / 2
         results_min[patient][gene] = min(GEscores[gene], MTscores[gene])
 
-actual_patients = list(results_avg.keys())
+actual_patients = list(results_min.keys())
 """
 
 for i in range(0, len(actual_patients) - 1):
