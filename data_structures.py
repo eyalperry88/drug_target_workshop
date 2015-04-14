@@ -1,4 +1,5 @@
 import numpy as np
+import copy
 
 class DTWNode:
     'Node in the DTW graph'
@@ -79,3 +80,12 @@ class DTWGraph:
         for node in self.nodes:
             self.nodes[node].mutation_type = None
             self.nodes[node].expression_level = None
+
+    def createSubGraph(self, pr_values, threshold):
+        print('original graph contains ' + len(self.nodes) + ' nodes and ' + len(self.weights) + ' edges')
+        newGraph = copy.deepcopy(self)
+        for node in newGraph.nodes:
+            if pr_values[node] < threshold:
+                newGraph.removeNode(node)
+        print('sub graph contains ' + len(newGraph.nodes) + ' nodes and ' + len(newGraph.weights) + ' edges')
+        return newGraph
