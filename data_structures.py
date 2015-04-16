@@ -34,7 +34,8 @@ class DTWGraph:
 
     def removeNode(self, gene_id):
         node = self.nodes[gene_id]
-        for neighbor_id in node.neighbors:
+        neighbors_copy = list(node.neighbors.keys())
+        for neighbor_id in neighbors_copy:
             neighbor = self.nodes[neighbor_id]
             neighbor.removeNeighbor(gene_id)
             del self.weights[tuple(sorted((neighbor_id, gene_id)))]
@@ -86,10 +87,10 @@ class DTWGraph:
             self.nodes[node].expression_level = None
 
     def createSubGraph(self, pr_values, threshold):
-        print('original graph contains ' + len(self.nodes) + ' nodes and ' + len(self.weights) + ' edges')
+        print('original graph contains', len(self.nodes), 'nodes and', len(self.weights), 'edges')
         newGraph = copy.deepcopy(self)
-        for node in newGraph.nodes:
-            if pr_values[node] < threshold:
+        for node in self.nodes:
+            if pr_values[node] <= threshold:
                 newGraph.removeNode(node)
-        print('sub graph contains ' + len(newGraph.nodes) + ' nodes and ' + len(newGraph.weights) + ' edges')
+        print('sub graph contains', len(newGraph.nodes), 'nodes and', len(newGraph.weights), 'edges')
         return newGraph

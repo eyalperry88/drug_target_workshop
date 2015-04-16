@@ -5,7 +5,7 @@ times = {'prior_time' : 0,
 'propogate_time' : 0,
 'converge_time' : 0}
 
-def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.75):
+def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.75, MAX_ITERATIONS=40):
     global times
     
     prior_knowledge = {}
@@ -53,9 +53,9 @@ def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.75):
         times['copy_time'] += (time.clock() - start)
         
         # print('Dist^2 after ' + str(iterations) + ' is ' + str(summ))
-        if (summ < EPSILON):
+        if (summ < EPSILON or iterations >= MAX_ITERATIONS):
             print('Converged after ' + str(iterations) + ' iterations')
             break
         iterations += 1
 
-    return propagation_scores
+    return propagation_scores, iterations

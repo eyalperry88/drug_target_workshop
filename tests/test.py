@@ -15,7 +15,6 @@ def runTest():
     g.addEdge("GENE3", "GENE2", 0.6)
     assert(g.getEdgeWeight("GENE2", "GENE3") == 0.6)
     g.normalizeWeights()
-    print(g.weights)
     g.removeEdge("GENE2", "GENE3")
     assert(len(g.nodes["GENE2"].neighbors) == 0)
     g.nodes["GENE2"].mutation_type = "some_type"
