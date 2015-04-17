@@ -1,4 +1,5 @@
 from data_structures import *
+import urllib.request
 
 'reading and parsing data helpers'
     
@@ -46,3 +47,41 @@ def loadPPIData(filename, graph):
         graph.addEdge(gene_data[0].strip(), gene_data[1].strip(), float(gene_data[2]))
     print('Loaded ' + str(count_nodes) + ' nodes and ' + str(count_edges) + ' edges.')
     file.close()
+    
+def loadCausalGenes(filename, graph):
+    file = open(filename, 'r')
+    count_genes = 0
+    count_bad = 0
+    causal_genes = []
+    for line in file:
+        gene = line.strip()
+        if gene in graph.nodes:
+            causal_genes.append(gene)
+            count_genes += 1
+        else:
+            # check aliases - using UNIPROT API
+            found_alias = False
+            with urllib.request.urlopen('http://www.uniprot.org/uniprot/?query='+gene+'+AND+organism:9606&format=tab&columns=genes') as response:
+                data = response.read()
+                first_row = True
+                for row in data.splitlines():
+                    if first_row:
+                        first_row = False
+                        continue
+                    genes = row.decode("utf-8").split()
+                    if gene in genes:
+                        for other_gene in genes:
+                            if other_gene in graph.nodes:
+                                print('Adding', other_gene, 'instead of', gene)
+                                causal_genes.append(other_gene)
+                                count_genes += 1
+                                found_alias = True
+                                break
+                    if found_alias:
+                        break
+                if not found_alias:
+                    print('Could not find suitable alias for', gene)
+                    count_bad += 1
+    print('Loaded ' + str(count_genes) + ' genes (' + str(count_bad) + ' not found on graph)')
+    file.close()
+    return causal_genes

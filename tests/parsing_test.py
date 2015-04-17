@@ -16,3 +16,9 @@ def runTest():
     assert(g.nodes["GENE2"].mutation_type == 'Substitution - Missense')
     assert(g.nodes["GENE3"].mutation_type == None)
     
+    g2 = DTWGraph()
+    g2.addNode("CBP")
+    g2.addNode("ABC")
+    causal_genes = loadCausalGenes("test_data/causal_test.txt", g2)
+    print(causal_genes)
+    

@@ -111,10 +111,10 @@ for patient in patients:
     # u, prob = stats.mannwhitneyu(GEscores.values(), MTscores.values())
     # print('MWU prob is ' + str(prob))
     
-    # results_avg[patient] = {}
+    results_avg[patient] = {}
     results_min[patient] = {}
     for gene in GEscores:
-        # results_avg[patient][gene] = (GEscores[gene] + MTscores[gene]) / 2
+        results_avg[patient][gene] = (GEscores[gene] + MTscores[gene]) / 2
         results_min[patient][gene] = min(GEscores[gene], MTscores[gene])
 
 actual_patients = list(results_min.keys())
@@ -130,9 +130,9 @@ for i in range(0, len(actual_patients) - 1):
         print('Wilcoxon prob for min is ' + str(p2))
 """       
 
-# using top 10 percent
+
 import operator
-k = round(gene_num / 10)
+k = round(gene_num / 10) # using top 10 percent
 expected = {}
 observed = {}
 for gene in g.nodes:
@@ -142,13 +142,10 @@ for i in range(0, len(actual_patients)):
     sorted_scores = sorted(results_min[actual_patients[i]].items(), key=operator.itemgetter(1), reverse=True)
     for gene, score in sorted_scores[0:k]:
         observed[gene] += 1
+
 chi = 0
 threshold = len(actual_patients) / 2
-f_causal = open("data/cancer_census_genes.txt", 'r')
-causal_genes = []
-for line in f_causal:
-    causal_genes.append(line.strip())
-f_causal.close()
+causal_genes = loadCausalGenes("data/cancer_census_genes.txt", g)
 causal_gene_hits = 0
 for gene in observed:
     if observed[gene] > threshold:
@@ -160,3 +157,6 @@ print('chi statistic: ' + str(chi))
 
 print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)))
 print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
+p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), k)
+print('p-value: ' + str(p))
+print('-log(p-value): ' + str(-numpy.log10(p)))
