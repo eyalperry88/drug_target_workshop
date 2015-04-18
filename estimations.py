@@ -94,14 +94,14 @@ for patient in patients:
         print('no mutation data')        
         continue
     print('Propagating from expression...')
-    GEscores, GE_iterations = propagation.propagate(g, 'GE')
+    GEscores, GE_iterations = propagation.propagate(g, 'GE', ALPHA=0.5)
     run_stats['expression_iterations'].append(GE_iterations)
     GE_average = numpy.average(list(GEscores.values()))
     GE_std = numpy.std(list(GEscores.values()))
     print('Before score normalization - mean:', GE_average, ', std:', GE_std)
     GEscores.update((key, (val - GE_average) / GE_std)  for key, val in GEscores.items())
     print('Propagating from mutation...')
-    MTscores, MT_iterations = propagation.propagate(g, 'MT')
+    MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA=0.5)
     run_stats['mutation_iterations'].append(MT_iterations)
     MT_average = numpy.average(list(MTscores.values()))
     MT_std = numpy.std(list(MTscores.values()))
@@ -145,7 +145,7 @@ for i in range(0, len(actual_patients)):
 
 chi = 0
 threshold = len(actual_patients) / 2
-causal_genes = loadCausalGenes("data/cancer_census_genes.txt", g)
+causal_genes = loadCausalGenes("data/cancer_cosmic_genes.txt", g)
 causal_gene_hits = 0
 for gene in observed:
     if observed[gene] > threshold:

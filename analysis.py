@@ -46,7 +46,7 @@ for gene in GEscores:
 threshold = 0
 sub_g = g.createSubGraph(scores, threshold)
 
-causal_genes = loadCausalGenes("data/AML_census_genes.txt", g)
+causal_genes = loadCausalGenes("data/cancer_cosmic_genes.txt", g)
 causal_gene_hits = 0
 for gene in sub_g.nodes:
     if gene in causal_genes:
