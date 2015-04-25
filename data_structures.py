@@ -1,5 +1,6 @@
 import numpy as np
 import copy
+from scipy import sparse
 
 class DTWNode:
     'Node in the DTW graph'
@@ -60,26 +61,34 @@ class DTWGraph:
 
     def normalizeWeights(self):
         n = len(self.nodes)
-        node_to_idx = {}
-        i = 0
-        for node in self.nodes:
-            node_to_idx[node] = i
-            i += 1
+        self.mapIndices()
         sum_vec = np.zeros(n)
         for node in self.nodes:
             for neighbor in self.nodes[node].neighbors:
-                sum_vec[node_to_idx[node]] += self.getEdgeWeight(node, neighbor)
+                sum_vec[self.gene2index[node]] += self.getEdgeWeight(node, neighbor)
         sum_vec = np.reciprocal(np.sqrt(sum_vec))
         new_weights = {}
         for node in self.nodes:
             for neighbor in self.nodes[node].neighbors:
-                new_w = sum_vec[node_to_idx[node]] * self.getEdgeWeight(node, neighbor) * sum_vec[node_to_idx[neighbor]]
+                new_w = sum_vec[self.gene2index[node]] * self.getEdgeWeight(node, neighbor) * sum_vec[self.gene2index[neighbor]]
                 new_weights[tuple(sorted((node, neighbor)))] = new_w
-        for key in new_weights:
-            self.weights[key] = new_weights[key]
-            self.nodes[key[0]].neighbors[key[1]] = new_weights[key]
-            self.nodes[key[1]].neighbors[key[0]] = new_weights[key]
-
+        self.W = sparse.lil_matrix((n, n))
+        for key, w in new_weights.items():
+            self.weights[key] = w
+            self.nodes[key[0]].neighbors[key[1]] = w
+            self.nodes[key[1]].neighbors[key[0]] = w
+            self.W[self.gene2index[key[0]], self.gene2index[key[1]]] = w
+            self.W[self.gene2index[key[1]], self.gene2index[key[0]]] = w
+        self.W = self.W.tocsr()
+    
+    def mapIndices(self):
+        self.index2gene = []
+        self.gene2index = {}
+        idx = 0
+        for gene in self.nodes:
+            self.gene2index[gene] = idx
+            self.index2gene.append(gene)
+            idx += 1
 
     def initGraph(self):
         for node in self.nodes:

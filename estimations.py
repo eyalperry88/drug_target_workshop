@@ -1,7 +1,9 @@
 from parsing_utils import *
 import propagation
-import numpy
+import numpy as np
+import operator
 from scipy import stats
+from gorilla import *
 
 """
 # top 10:
@@ -74,15 +76,19 @@ print('Normalizing weights...')
 g.normalizeWeights()
 gene_num = len(g.nodes)
 results_avg = {}
-results_min = {}
+results_max = {}
 run_stats = {'expression_iterations' : [], 'mutation_iterations' : []}
 
+count_patient = 1
 for patient in patients:
-    print("Working on patient", patient)
-    if patient in results_min:
+    print("Working on patient", patient, '#' + str(count_patient))
+    count_patient += 1
+    if patient in results_max:
         print("patient already exists - skipping")
         continue;
+        
     g.initGraph()
+    
     print('Loading expression...')
     ge_loaded = loadExpressionData("data/AML_Expression.txt", g, patient)
     if (ge_loaded == 0):
@@ -93,45 +99,26 @@ for patient in patients:
     if (mt_loaded == 0):
         print('no mutation data')        
         continue
-    print('Propagating from expression...')
-    GEscores, GE_iterations = propagation.propagate(g, 'GE', ALPHA=0.5)
-    run_stats['expression_iterations'].append(GE_iterations)
-    GE_average = numpy.average(list(GEscores.values()))
-    GE_std = numpy.std(list(GEscores.values()))
-    print('Before score normalization - mean:', GE_average, ', std:', GE_std)
-    GEscores.update((key, (val - GE_average) / GE_std)  for key, val in GEscores.items())
-    print('Propagating from mutation...')
-    MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA=0.5)
-    run_stats['mutation_iterations'].append(MT_iterations)
-    MT_average = numpy.average(list(MTscores.values()))
-    MT_std = numpy.std(list(MTscores.values()))
-    print('Before score normalization - mean:', MT_average, ', std:', MT_std)
-    MTscores.update((key, (val - MT_average) / MT_std)  for key, val in MTscores.items())
     
-    # u, prob = stats.mannwhitneyu(GEscores.values(), MTscores.values())
-    # print('MWU prob is ' + str(prob))
+    print('Propagating from expression...')
+    GEscores, GE_iterations = propagation.propagate(g, 'GE')
+    run_stats['expression_iterations'].append(GE_iterations)
+    GEranks = gene_num - GEscores.argsort().argsort()
+    
+    print('Propagating from mutation...')
+    MTscores, MT_iterations = propagation.propagate(g, 'MT')
+    run_stats['mutation_iterations'].append(MT_iterations)
+    MTranks = gene_num - MTscores.argsort().argsort()
     
     results_avg[patient] = {}
-    results_min[patient] = {}
-    for gene in GEscores:
-        results_avg[patient][gene] = (GEscores[gene] + MTscores[gene]) / 2
-        results_min[patient][gene] = min(GEscores[gene], MTscores[gene])
+    results_max[patient] = {}
+    for gene in g.nodes:
+        results_avg[patient][gene] = (GEranks[g.gene2index[gene]] + MTranks[g.gene2index[gene]]) / 2
+        results_max[patient][gene] = max(GEranks[g.gene2index[gene]], MTranks[g.gene2index[gene]])
 
-actual_patients = list(results_min.keys())
-"""
-
-for i in range(0, len(actual_patients) - 1):
-    for j in range(i + 1, len(actual_patients)):
-        print('Comparing patient ' + actual_patients[i] + ' vs. ' + actual_patients[j])
-        T, p1 = stats.wilcoxon(results_avg[actual_patients[i]].values(), results_avg[actual_patients[j]].values())
-        print('Wilcoxon prob for avg is ' + str(p1))
-        
-        T, p2 = stats.wilcoxon(results_min[actual_patients[i]].values(), results_min[actual_patients[j]].values())
-        print('Wilcoxon prob for min is ' + str(p2))
-"""       
+actual_patients = list(results_max.keys())    
 
 
-import operator
 k = round(gene_num / 10) # using top 10 percent
 expected = {}
 observed = {}
@@ -139,24 +126,57 @@ for gene in g.nodes:
     expected[gene] = float(k * len(actual_patients)) / gene_num
     observed[gene] = 0
 for i in range(0, len(actual_patients)):
-    sorted_scores = sorted(results_min[actual_patients[i]].items(), key=operator.itemgetter(1), reverse=True)
+    sorted_scores = sorted(results_max[actual_patients[i]].items(), key=operator.itemgetter(1), reverse=False)
     for gene, score in sorted_scores[0:k]:
         observed[gene] += 1
-
-chi = 0
 threshold = len(actual_patients) / 2
-causal_genes = loadCausalGenes("data/cancer_cosmic_genes.txt", g)
+
+causal_genes = loadCausalGenes("data/AML_KEGG_genes.txt", g)
 causal_gene_hits = 0
+above_threshold_genes = 0
 for gene in observed:
     if observed[gene] > threshold:
+        above_threshold_genes += 1
         if gene in causal_genes:
             causal_gene_hits += 1
-        # print(gene + ' - ' + str(observed[gene]))
-    chi += (float(observed[gene] - expected[gene]) ** 2) / expected[gene]
-print('chi statistic: ' + str(chi))
-
-print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)))
+print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)) + '(above threshold: ' + str(above_threshold_genes) + ')')
 print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
-p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), k)
+p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)
 print('p-value: ' + str(p))
-print('-log(p-value): ' + str(-numpy.log10(p)))
+print('-log(p-value): ' + str(-np.log10(p)))
+
+causal_genes = loadCausalGenes("data/AML_cosmic_genes.txt", g)
+causal_gene_hits = 0
+above_threshold_genes = 0
+for gene in observed:
+    if observed[gene] > threshold:
+        above_threshold_genes += 1
+        if gene in causal_genes:
+            causal_gene_hits += 1
+print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)) + '(above threshold: ' + str(above_threshold_genes) + ')')
+print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
+p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)
+print('p-value: ' + str(p))
+print('-log(p-value): ' + str(-np.log10(p)))
+
+causal_genes = loadCausalGenes("data/cancer_cosmic_genes.txt", g)
+causal_gene_hits = 0
+above_threshold_genes = 0
+for gene in observed:
+    if observed[gene] > threshold:
+        above_threshold_genes += 1
+        if gene in causal_genes:
+            causal_gene_hits += 1
+print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)) + '(above threshold: ' + str(above_threshold_genes) + ')')
+print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
+p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)
+print('p-value: ' + str(p))
+print('-log(p-value): ' + str(-np.log10(p)))
+
+
+total_ranks = np.zeros(gene_num)
+for patient in actual_patients:
+    for gene in results_max[patient]:
+        total_ranks[g.gene2index[gene]] += results_max[patient][gene]
+labels = getLabelsVector(g, causal_genes, total_ranks)
+mHG, mHG_idx = mHG(labels)

@@ -1,11 +1,43 @@
 import time
+import numpy as np
 
 times = {'prior_time' : 0,
 'copy_time' : 0,
 'propogate_time' : 0,
 'converge_time' : 0}
 
-def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.75, MAX_ITERATIONS=40):
+def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.9, MAX_ITERATIONS=40):
+    global times
+    
+    n = len(g.nodes)
+    
+    Y = np.zeros(n)
+    count_prop_start = 0
+    for node in g.nodes:
+        if (g.nodes[node].expression_level if prior == 'GE' else g.nodes[node].mutation_type) != None:
+            Y[g.gene2index[node]] = (1 - ALPHA)
+            count_prop_start += 1
+    print(str(count_prop_start) + ' initial genes out of ' + str(n))
+
+    F = np.zeros(n)
+    
+    iterations = 1
+    while True:
+        newF = g.W.dot(ALPHA * F) + Y
+        
+        summ = np.sum((newF - F)**2)
+        F = newF
+        
+        if (summ < EPSILON or iterations >= MAX_ITERATIONS):
+            print('Converged after ' + str(iterations) + ' iterations')
+            break
+        iterations += 1
+
+    return F, iterations
+
+
+
+def propagate_old(g, prior, EPSILON = 0.0001, ALPHA = 0.75, MAX_ITERATIONS=40):
     global times
     
     prior_knowledge = {}
