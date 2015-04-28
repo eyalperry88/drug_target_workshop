@@ -179,4 +179,5 @@ for patient in actual_patients:
     for gene in results_max[patient]:
         total_ranks[g.gene2index[gene]] += results_max[patient][gene]
 labels = getLabelsVector(g, causal_genes, total_ranks)
-mHG, mHG_idx = mHG(labels)
+p, mHG_idx = mHG(labels)
+pval = mHG_pval(p, labels)
