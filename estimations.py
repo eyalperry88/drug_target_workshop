@@ -77,6 +77,8 @@ g.normalizeWeights()
 gene_num = len(g.nodes)
 results_avg = {}
 results_max = {}
+results_mut = {}
+results_de = {}
 run_stats = {'expression_iterations' : [], 'mutation_iterations' : []}
 
 count_patient = 1
@@ -112,24 +114,41 @@ for patient in patients:
     
     results_avg[patient] = {}
     results_max[patient] = {}
+    results_mut[patient] = {}
+    results_de[patient] = {}
     for gene in g.nodes:
         results_avg[patient][gene] = (GEranks[g.gene2index[gene]] + MTranks[g.gene2index[gene]]) / 2
         results_max[patient][gene] = max(GEranks[g.gene2index[gene]], MTranks[g.gene2index[gene]])
+        results_mut[patient][gene] = MTranks[g.gene2index[gene]]
+        results_de[patient][gene] = GEranks[g.gene2index[gene]]
 
 actual_patients = list(results_max.keys())    
 
 
+
+        
 k = round(gene_num / 10) # using top 10 percent
 expected = {}
 observed = {}
+"""
 for gene in g.nodes:
     expected[gene] = float(k * len(actual_patients)) / gene_num
     observed[gene] = 0
 for i in range(0, len(actual_patients)):
-    sorted_scores = sorted(results_max[actual_patients[i]].items(), key=operator.itemgetter(1), reverse=False)
+    sorted_scores = sorted(results_de[actual_patients[i]].items(), key=operator.itemgetter(1), reverse=False)
     for gene, score in sorted_scores[0:k]:
         observed[gene] += 1
 threshold = len(actual_patients) / 2
+"""
+sum_of_ranks = np.zeros(gene_num)
+for patient in actual_patients:
+    for gene in results_max[patient]:
+        sum_of_ranks[g.gene2index[gene]] += results_avg[patient][gene]
+ranked_sum_of_ranks = sum_of_ranks.argsort().argsort()
+for gene in g.nodes:
+    if ranked_sum_of_ranks[g.gene2index[gene]] <= k:
+        observed[gene] = 1
+threshold = 0
 
 causal_genes = loadCausalGenes("data/AML_KEGG_genes.txt", g)
 causal_gene_hits = 0
@@ -173,6 +192,28 @@ p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_thre
 print('p-value: ' + str(p))
 print('-log(p-value): ' + str(-np.log10(p)))
 
+causal_genes = loadCausalGenes("data/AML_drug_targets.txt", g)
+causal_gene_hits = 0
+above_threshold_genes = 0
+for gene in observed:
+    if observed[gene] > threshold:
+        above_threshold_genes += 1
+        if gene in causal_genes:
+            causal_gene_hits += 1
+print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)) + '(above threshold: ' + str(above_threshold_genes) + ')')
+print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
+p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)
+print('p-value: ' + str(p))
+print('-log(p-value): ' + str(-np.log10(p)))
+
+
+total_ranks = np.zeros(gene_num)
+for patient in actual_patients:
+    for gene in results_max[patient]:
+        total_ranks[g.gene2index[gene]] += results_avg[patient][gene]
+labels = getLabelsVector(g, causal_genes, total_ranks)
+p, mHG_idx = mHG(labels)
+print('mHG for average: ', p, 'index: ', mHG_idx)
 
 total_ranks = np.zeros(gene_num)
 for patient in actual_patients:
@@ -180,4 +221,20 @@ for patient in actual_patients:
         total_ranks[g.gene2index[gene]] += results_max[patient][gene]
 labels = getLabelsVector(g, causal_genes, total_ranks)
 p, mHG_idx = mHG(labels)
-pval = mHG_pval(p, labels)
+print('mHG for max: ', p, 'index: ', mHG_idx)
+
+total_ranks = np.zeros(gene_num)
+for patient in actual_patients:
+    for gene in results_max[patient]:
+        total_ranks[g.gene2index[gene]] += results_mut[patient][gene]
+labels = getLabelsVector(g, causal_genes, total_ranks)
+p, mHG_idx = mHG(labels)
+print('mHG for mutation_only: ', p, 'index: ', mHG_idx)
+
+total_ranks = np.zeros(gene_num)
+for patient in actual_patients:
+    for gene in results_max[patient]:
+        total_ranks[g.gene2index[gene]] += results_de[patient][gene]
+labels = getLabelsVector(g, causal_genes, total_ranks)
+p, mHG_idx = mHG(labels)
+print('mHG for de only: ', p, 'index: ', mHG_idx)
