@@ -47,6 +47,14 @@ def mHG_pval(p, labels):
                     mat[w, b] = mat[w - 1, b] * ((W - w + 1) / (B + W - b - w + 1)) + mat[w, b - 1] * ((B - b + 1) / (B + W - b - w + 1))
     return mat[W, B]
 
+def getDiffValue(g, sub_g, g_ranks, sub_g_ranks, genes):
+    indices_g = [g.gene2index[gene] for gene in genes]
+    indices_sub_g = [sub_g.gene2index[gene] for gene in genes]
+    g_to_diff = g_ranks.take(indices_g)
+    sub_g_to_diff = sub_g_ranks.take(indices_sub_g)
+    dist = np.linalg.norm(g_to_diff-sub_g_to_diff)
+    return dist
+
 def mHG_pval_old(p, labels):
     B = np.sum(labels)
     N = len(labels)

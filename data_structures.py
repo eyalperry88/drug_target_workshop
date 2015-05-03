@@ -1,6 +1,7 @@
 import numpy as np
 import copy
 from scipy import sparse
+import time
 
 class DTWNode:
     'Node in the DTW graph'
@@ -95,11 +96,17 @@ class DTWGraph:
             self.nodes[node].mutation_type = None
             self.nodes[node].expression_level = None
 
-    def createSubGraph(self, pr_values, threshold):
-        print('original graph contains', len(self.nodes), 'nodes and', len(self.weights), 'edges')
+    def createSubGraph(self, node):
+        start = time.clock()
         newGraph = copy.deepcopy(self)
-        for node in self.nodes:
-            if pr_values[node] <= threshold:
-                newGraph.removeNode(node)
-        print('sub graph contains', len(newGraph.nodes), 'nodes and', len(newGraph.weights), 'edges')
+        n = len(newGraph.nodes)
+        newGraph.removeNode(node)
+        indices = [i for i in range(n)]
+        indices.remove(newGraph.gene2index[node])
+        newGraph.W = self.W[indices, :]
+        newGraph.W = newGraph.W.tocsc()[:, indices]
+        del newGraph.gene2index[node]
+        newGraph.index2gene.remove(node)
+        end = time.clock()
+        print ('time2:', end-start)
         return newGraph

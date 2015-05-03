@@ -1,5 +1,6 @@
 from parsing_utils import *
 import propagation
+import statistics
 import numpy
 from scipy import stats
 import sys
@@ -20,40 +21,57 @@ print('Loading expression...')
 ge_loaded = loadExpressionData("data/AML_Expression.txt", g, patient)
 if (ge_loaded == 0):
     print('no expression data')
-    sys.exit()
+    exit(0)
 print('Loading mutations...')
 mt_loaded = loadMutationData("data/AML_Mutations.txt", g, patient)
 if (mt_loaded == 0):
     print('no mutation data')        
-    sys.exit()
+    exit(0)
+    
 print('Propagating from expression...')
 GEscores, GE_iterations = propagation.propagate(g, 'GE')
-GE_average = numpy.average(list(GEscores.values()))
-GE_std = numpy.std(list(GEscores.values()))
-print('Before score normalization - mean:', GE_average, ', std:', GE_std)
-GEscores.update((key, (val - GE_average) / GE_std)  for key, val in GEscores.items())
+GEranks = gene_num - GEscores.argsort().argsort()
+    
 print('Propagating from mutation...')
 MTscores, MT_iterations = propagation.propagate(g, 'MT')
-MT_average = numpy.average(list(MTscores.values()))
-MT_std = numpy.std(list(MTscores.values()))
-print('Before score normalization - mean:', MT_average, ', std:', MT_std)
-MTscores.update((key, (val - MT_average) / MT_std)  for key, val in MTscores.items())
+MTranks = gene_num - MTscores.argsort().argsort()
+'''
+g_ranks = [0 for i in range(gene_num)]
+print(len(GEranks))
+for gene in g.nodes:
+    gene_index = g.gene2index[gene]
+    g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
+'''
+sub_g = g.createSubGraph('ITA7')
 
-scores = {}
-for gene in GEscores:
-    scores[gene] = min(GEscores[gene], MTscores[gene])
-
-threshold = 0
-sub_g = g.createSubGraph(scores, threshold)
-
-causal_genes = loadCausalGenes("data/cancer_cosmic_genes.txt", g)
-causal_gene_hits = 0
+sub_gene_num = len(sub_g.nodes)
+print("Working on patient", patient)
+print('Loading expression...')
+sub_ge_loaded = loadExpressionData("data/AML_Expression.txt", sub_g, patient)
+if (sub_ge_loaded == 0):
+    print('no expression data')
+    exit(0)    
+print('Loading mutations...')
+sub_mt_loaded = loadMutationData("data/AML_Mutations.txt", sub_g, patient)
+if (sub_mt_loaded == 0):
+    print('no mutation data')        
+    exit(0)
+    
+print('Propagating from expression...')
+sub_GEscores, sub_GE_iterations = propagation.propagate(sub_g, 'GE')
+sub_GEranks = sub_gene_num - sub_GEscores.argsort().argsort()
+    
+print('Propagating from mutation...')
+sub_MTscores, sub_MT_iterations = propagation.propagate(sub_g, 'MT')
+sub_MTranks = sub_gene_num - sub_MTscores.argsort().argsort()
+'''
+sub_g_ranks = [0 for i in range(sub_gene_num)]
 for gene in sub_g.nodes:
-    if gene in causal_genes:
-        causal_gene_hits += 1
+    gene_index = sub_g.gene2index[gene]
+    #print(gene_index)
+    sub_g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
+'''
+genes = loadCausalGenes("data/AML_KEGG_genes.txt", g)
+diff = statistics.getDiffValue(g, sub_g, MTranks, sub_MTranks, genes)
 
-print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)))
-print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
-p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), len(sub_g.nodes))
-print('p-value: ' + str(p))
-print('-log(p-value): ' + str(-numpy.log10(p)))
+print('diff:', diff)
