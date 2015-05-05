@@ -59,7 +59,6 @@ class DTWGraph:
     def setEdgeWeight(self, gene1, gene2, weight):
         self.weights[tuple(sorted((gene1, gene2)))] = weight
         
-
     def normalizeWeights(self):
         n = len(self.nodes)
         self.mapIndices()
@@ -105,8 +104,7 @@ class DTWGraph:
         indices.remove(newGraph.gene2index[node])
         newGraph.W = self.W[indices, :]
         newGraph.W = newGraph.W.tocsc()[:, indices]
-        del newGraph.gene2index[node]
-        newGraph.index2gene.remove(node)
+        newGraph.mapIndices()
         end = time.clock()
         print ('time2:', end-start)
         return newGraph

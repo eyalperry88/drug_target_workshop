@@ -68,7 +68,6 @@ sub_MTranks = sub_gene_num - sub_MTscores.argsort().argsort()
 sub_g_ranks = [0 for i in range(sub_gene_num)]
 for gene in sub_g.nodes:
     gene_index = sub_g.gene2index[gene]
-    #print(gene_index)
     sub_g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
 '''
 genes = loadCausalGenes("data/AML_KEGG_genes.txt", g)
