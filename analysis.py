@@ -30,11 +30,11 @@ if (mt_loaded == 0):
 """
 print('Propagating from expression...')
 GEscores, GE_iterations = propagation.propagate(g, 'GE')
-GEranks = gene_num - GEscores.argsort().argsort()
+GEranks = gene_num - stats.rankdata(GEscores)
 """ 
 print('Propagating from mutation...')
 MTscores, MT_iterations = propagation.propagate(g, 'MT')
-MTranks = gene_num - MTscores.argsort().argsort()
+MTranks = gene_num - stats.rankdata(MTscores)
 '''
 g_ranks = [0 for i in range(gene_num)]
 print(len(GEranks))
@@ -47,6 +47,7 @@ k = round(gene_num / 20)
 diff_per_gene = {}
 genes = loadCausalGenes("data/AML_cosmic_genes.txt", g)
 count = 0
+f = open('diff_per_gene.txt', 'w')
 for gene in g.nodes:
     if g.nodes[gene].mutation_type == None and MTranks[g.gene2index[gene]] < k:
         print('Knocking out', gene, '(', count, 'out of', k, ')')
@@ -57,11 +58,11 @@ for gene in g.nodes:
         """    
         print('Propagating from expression...')
         sub_GEscores, sub_GE_iterations = propagation.propagate(sub_g, 'GE')
-        sub_GEranks = sub_gene_num - sub_GEscores.argsort().argsort()
+        sub_GEranks = sub_gene_num - stats.rankdata(sub_GEscores)
         """
         print('Propagating from mutation...')
         sub_MTscores, sub_MT_iterations = propagation.propagate(sub_g, 'MT')
-        sub_MTranks = sub_gene_num - sub_MTscores.argsort().argsort()
+        sub_MTranks = sub_gene_num - stats.rankdata(sub_MTscores)
         '''
         sub_g_ranks = [0 for i in range(sub_gene_num)]
         for gene in sub_g.nodes:
@@ -72,10 +73,12 @@ for gene in g.nodes:
         diff = statistics.getDiffValue(g, sub_g, MTranks, sub_MTranks, genes)
         diff_per_gene[gene] = diff
         print('diff:', diff)
+        f.write(gene + '\t' + str(diff))
+f.close()
 
 import operator
 sorted_diffs = sorted(diff_per_gene.items(), key=operator.itemgetter(1), reverse=True)
 f = open('diff_per_gene_sorted.txt', 'w')
 for gene, diff in sorted_diffs:
-    f.write(gene + '\t' + diff + '\n')
+    f.write(gene + '\t' + str(diff) + '\n')
 f.close()

@@ -4,7 +4,7 @@ import numpy as np
 import bisect
 
 def getLabelsVector(g, gene_set, ranks):
-	return [1 if x in gene_set else 0 for (y, x) in sorted(zip(ranks, list(g.nodes.keys())))]
+	return [1 if x in gene_set else 0 for (y, x) in sorted(zip(ranks, list(g.nodes.keys)))]
 	
 def mHG(labels):
     minHGT = 1
@@ -71,7 +71,7 @@ def generateHealthyDist(g, genes, mutation_num):
 def getB2HValue(g, sub_g, g_ranks, sub_g_ranks, gene_dists):
         for gene in gene_dists:
                 disease_rank = g_ranks[g.gene2index[gene]]
-                new_rank = sub_g_ranks[g.gene2index[gene]]
+                new_rank = sub_g_ranks[sub_g.gene2index[gene]]
                 disease_q = bisect.bisect(disease_rank, gene_dists[gene]) / len(gene_dists[gene])
                 new_q = bisect.bisect(new_rank, gene_dists[gene]) / len(gene_dists[gene])
                 print('gene', gene)

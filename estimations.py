@@ -3,7 +3,7 @@ import propagation
 import numpy as np
 import operator
 from scipy import stats
-from gorilla import *
+from statistics import *
 
 """
 # top 10:
@@ -105,12 +105,12 @@ for patient in patients:
     print('Propagating from expression...')
     GEscores, GE_iterations = propagation.propagate(g, 'GE')
     run_stats['expression_iterations'].append(GE_iterations)
-    GEranks = gene_num - GEscores.argsort().argsort()
+    GEranks = gene_num - stats.rankdata(GEscores)
     
     print('Propagating from mutation...')
     MTscores, MT_iterations = propagation.propagate(g, 'MT')
     run_stats['mutation_iterations'].append(MT_iterations)
-    MTranks = gene_num - MTscores.argsort().argsort()
+    MTranks = gene_num - stats.rankdata(MTscores)
     
     results_avg[patient] = {}
     results_max[patient] = {}
