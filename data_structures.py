@@ -111,6 +111,7 @@ class DTWGraph:
         newGraph.W = newGraph.W.tocsc()[:, indices]
         #newGraph.mapIndices()
         newGraph.index2gene.remove(node)
+        newGraph.gene2index = {}
         for i in range(len(newGraph.index2gene)):
             newGraph.gene2index[newGraph.index2gene[i]] = i
         end = time.clock()

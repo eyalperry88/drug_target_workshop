@@ -45,9 +45,16 @@ for gene in g.nodes:
 
 k = round(gene_num / 10)
 diff_per_gene = {}
+diff_per_gene_b2h = {}
 genes = loadCausalGenes("data/AML_cosmic_genes.txt", g)
 count = 0
-f = open('diff_per_gene.txt', 'w')
+mutation_num = 0
+for gene in g.nodes:
+    if g.nodes[gene].mutation_type != None:
+        mutation_num += 1
+print('mutations:', mutation_num)
+healthy_dists = statistics.generateHealthyDist(g, genes, mutation_num)
+
 for gene in g.nodes:
     if g.nodes[gene].mutation_type == None and MTranks[g.gene2index[gene]] < k:
         print('Knocking out', gene, '(', count, 'out of', k, ')')
@@ -69,16 +76,21 @@ for gene in g.nodes:
            gene_index = sub_g.gene2index[gene]
            sub_g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
         '''
-        
+        diff_b2h = statistics.getB2HValue(g, sub_g, MTranks, sub_MTranks, healthy_dists)
         diff = statistics.getDiffValue(g, sub_g, MTranks, sub_MTranks, genes)
+        diff_per_gene_b2h[gene] = diff_b2h
         diff_per_gene[gene] = diff
         print('diff:', diff)
-        f.write(gene + '\t' + str(diff))
-f.close()
+        print('diff_b2h:', diff_b2h)
+
 
 import operator
 sorted_diffs = sorted(diff_per_gene.items(), key=operator.itemgetter(1), reverse=True)
+sorted_diffs_b2h = sorted(diff_per_gene_b2h.items(), key=operator.itemgetter(1), reverse=True)
 f = open('diff_per_gene_sorted.txt', 'w')
+f_b2h = open('b2h_diff_per_gene_sorted.txt', 'w')
 for gene, diff in sorted_diffs:
     f.write(gene + '\t' + str(diff) + '\n')
+for gene, diff in sorted_diffs_b2h:
+    f_b2h.write(gene + '\t' + str(diff) + '\n')
 f.close()
