@@ -28,8 +28,7 @@ def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.9, MAX_ITERATIONS=40, RANDOM
                 if g.nodes[node].mutation_type != None:
                     Y[g.gene2index[node]] = (1 - ALPHA)
                     count_prop_start += 1
-            
-    print(str(count_prop_start) + ' initial genes out of ' + str(n))
+        print(str(count_prop_start) + ' initial genes out of ' + str(n))
 
     F = np.zeros(n)
     
