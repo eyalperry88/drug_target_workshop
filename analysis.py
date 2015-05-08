@@ -43,7 +43,7 @@ for gene in g.nodes:
     g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
 '''
 
-k = round(gene_num / 20)
+k = round(gene_num / 10)
 diff_per_gene = {}
 genes = loadCausalGenes("data/AML_cosmic_genes.txt", g)
 count = 0

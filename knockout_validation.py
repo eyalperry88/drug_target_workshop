@@ -1,7 +1,7 @@
 from statistics import *
 from parsing_utils import *
 
-f = open('diff_per_gene_sorted.txt', 'r')
+f = open('b2h_diff_per_gene_sorted.txt', 'r')
 all_genes = []
 for line in f:
     gene = line.split('\t')[0]

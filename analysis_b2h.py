@@ -34,7 +34,7 @@ GEranks = gene_num - GEscores.argsort().argsort()
 """ 
 print('Propagating from mutation...')
 MTscores, MT_iterations = propagation.propagate(g, 'MT')
-MTranks = gene_num - MTscores.argsort().argsort()
+MTranks = gene_num - stats.rankdata(MTscores)
 '''
 g_ranks = [0 for i in range(gene_num)]
 print(len(GEranks))
@@ -43,7 +43,7 @@ for gene in g.nodes:
     g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
 '''
 
-k = round(gene_num / 20)
+k = round(gene_num / 10)
 diff_per_gene = {}
 genes = loadCausalGenes("data/AML_cosmic_genes.txt", g)
 count = 0
@@ -67,7 +67,7 @@ for gene in g.nodes:
         """
         print('Propagating from mutation...')
         sub_MTscores, sub_MT_iterations = propagation.propagate(sub_g, 'MT')
-        sub_MTranks = sub_gene_num - sub_MTscores.argsort().argsort()
+        sub_MTranks = sub_gene_num - stats.rankdata(sub_MTscores)
         '''
         sub_g_ranks = [0 for i in range(sub_gene_num)]
         for gene in sub_g.nodes:
@@ -83,5 +83,5 @@ import operator
 sorted_diffs = sorted(diff_per_gene.items(), key=operator.itemgetter(1), reverse=True)
 f = open('b2h_diff_per_gene_sorted.txt', 'w')
 for gene, diff in sorted_diffs:
-    f.write(gene + '\t' + diff + '\n')
+    f.write(gene + '\t' + str(diff) + '\n')
 f.close()
