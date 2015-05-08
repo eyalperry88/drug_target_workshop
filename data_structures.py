@@ -98,13 +98,21 @@ class DTWGraph:
     def createSubGraph(self, node):
         start = time.clock()
         newGraph = copy.deepcopy(self)
+        """
+        newGraph.mapIndices()
+        for gene in newGraph.nodes:
+            if newGraph.gene2index[gene] != 
+        """ 
         n = len(newGraph.nodes)
         newGraph.removeNode(node)
         indices = [i for i in range(n)]
         indices.remove(newGraph.gene2index[node])
         newGraph.W = self.W[indices, :]
         newGraph.W = newGraph.W.tocsc()[:, indices]
-        newGraph.mapIndices()
+        #newGraph.mapIndices()
+        newGraph.index2gene.remove(node)
+        for i in range(len(newGraph.index2gene)):
+            newGraph.gene2index[newGraph.index2gene[i]] = i
         end = time.clock()
         print ('time2:', end-start)
         return newGraph
