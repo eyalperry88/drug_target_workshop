@@ -1,5 +1,7 @@
 from scipy import stats, misc
+from propagation import *
 import numpy as np
+import bisect
 
 def getLabelsVector(g, gene_set, ranks):
 	return [1 if x in gene_set else 0 for (y, x) in sorted(zip(ranks, list(g.nodes.keys())))]
@@ -48,24 +50,35 @@ def mHG_pval(p, labels):
     return mat[W, B]
 
 def getDiffValue(g, sub_g, g_ranks, sub_g_ranks, genes):
-    '''
-    indices_g = sorted([g.gene2index[gene] for gene in genes])
-    for i in range(len(indices_g)):
-            print(g.index2gene[indices_g[i]])
-    indices_sub_g = sorted([sub_g.gene2index[gene] for gene in genes])
-    for i in range(len(indices_sub_g)):
-            print(sub_g.index2gene[indices_sub_g[i]])
-    g_to_diff = g_ranks.take(indices_g)
-    print(g_to_diff)
-    sub_g_to_diff = sub_g_ranks.take(indices_sub_g)
-    print(sub_g_to_diff)
-    dist = np.linalg.norm(g_to_diff-sub_g_to_diff)
-    '''
     dist = 0
     for i in range(len(genes)):
             dist += (g_ranks[g.gene2index[genes[i]]] - sub_g_ranks[sub_g.gene2index[genes[i]]]) ** 2
     return dist
 
+def generateHealthyDist(g, genes, mutation_num):
+    gene_dists = {}
+    for gene in genes:
+        gene_dists[gene] = []
+    for i in range(1000):
+        scores, iterations = propagation.propagate(g, 'RAND_MT', RANDOM_PRIORS=mutation_num)
+        ranks = len(g.nodes) - scores.argsort().argsort()
+        for gene in genes:
+            gene_dists[gene].append(ranks[g.gene2index[gene]])
+    for gene in genes:
+        gene_dists[gene] = sorted(gene_dists[gene])
+    return gene_dists
+
+def getB2HValue(g, sub_g, g_ranks, sub_g_ranks, gene_dists):
+        for gene in gene_dists:
+                disease_rank = g_ranks[g.gene2index[gene]]
+                new_rank = sub_g_ranks[g.gene2index[gene]]
+                disease_q = bisect.bisect(disease_rank, gene_dists[gene]) / len(gene_dists[gene])
+                new_q = bisect.bisect(new_rank, gene_dists[gene]) / len(gene_dists[gene])
+                print('gene', gene)
+                print('old rank', disease_rank, 'new rank', new_rank)
+                print('old q', disease_q, 'new q', new_q)
+                b2h = abs(new_q - disease_q)
+                
 def mHG_pval_old(p, labels):
     B = np.sum(labels)
     N = len(labels)

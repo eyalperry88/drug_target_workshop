@@ -1,22 +1,34 @@
 import time
 import numpy as np
+import random
 
 times = {'prior_time' : 0,
 'copy_time' : 0,
 'propogate_time' : 0,
 'converge_time' : 0}
 
-def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.9, MAX_ITERATIONS=40):
+def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.9, MAX_ITERATIONS=40, RANDOM_PRIORS=0):
     global times
     
     n = len(g.nodes)
     
     Y = np.zeros(n)
     count_prop_start = 0
-    for node in g.nodes:
-        if (g.nodes[node].expression_level if prior == 'GE' else g.nodes[node].mutation_type) != None:
-            Y[g.gene2index[node]] = (1 - ALPHA)
-            count_prop_start += 1
+    if prior == 'RAND_MT':
+        random_indices = random.sample(range(n), RANDOM_PRIORS)
+        for idx in random_indices:
+            Y[idx] = (1 - ALPHA)
+    else:
+        for node in g.nodes:
+            if prior == 'GE':
+                if g.nodes[node].expression_level != None:
+                    Y[g.gene2index[node]] = (1 - ALPHA)
+                    count_prop_start += 1
+            elif prior == 'MT':
+                if g.nodes[node].mutation_type != None:
+                    Y[g.gene2index[node]] = (1 - ALPHA)
+                    count_prop_start += 1
+            
     print(str(count_prop_start) + ' initial genes out of ' + str(n))
 
     F = np.zeros(n)

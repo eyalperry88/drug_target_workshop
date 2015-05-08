@@ -21,17 +21,17 @@ print('Loading expression...')
 ge_loaded = loadExpressionData("data/AML_Expression.txt", g, patient)
 if (ge_loaded == 0):
     print('no expression data')
-    exit(0)
+    # exit(0)
 print('Loading mutations...')
 mt_loaded = loadMutationData("data/AML_Mutations.txt", g, patient)
 if (mt_loaded == 0):
     print('no mutation data')        
     exit(0)
-    
+"""
 print('Propagating from expression...')
 GEscores, GE_iterations = propagation.propagate(g, 'GE')
 GEranks = gene_num - GEscores.argsort().argsort()
-    
+""" 
 print('Propagating from mutation...')
 MTscores, MT_iterations = propagation.propagate(g, 'MT')
 MTranks = gene_num - MTscores.argsort().argsort()
@@ -42,35 +42,40 @@ for gene in g.nodes:
     gene_index = g.gene2index[gene]
     g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
 '''
-sub_g = g.createSubGraph('ITA7')
 
-sub_gene_num = len(sub_g.nodes)
-print("Working on patient", patient)
-print('Loading expression...')
-sub_ge_loaded = loadExpressionData("data/AML_Expression.txt", sub_g, patient)
-if (sub_ge_loaded == 0):
-    print('no expression data')
-    exit(0)    
-print('Loading mutations...')
-sub_mt_loaded = loadMutationData("data/AML_Mutations.txt", sub_g, patient)
-if (sub_mt_loaded == 0):
-    print('no mutation data')        
-    exit(0)
-    
-print('Propagating from expression...')
-sub_GEscores, sub_GE_iterations = propagation.propagate(sub_g, 'GE')
-sub_GEranks = sub_gene_num - sub_GEscores.argsort().argsort()
-    
-print('Propagating from mutation...')
-sub_MTscores, sub_MT_iterations = propagation.propagate(sub_g, 'MT')
-sub_MTranks = sub_gene_num - sub_MTscores.argsort().argsort()
-'''
-sub_g_ranks = [0 for i in range(sub_gene_num)]
-for gene in sub_g.nodes:
-    gene_index = sub_g.gene2index[gene]
-    sub_g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
-'''
-genes = loadCausalGenes("data/AML_KEGG_genes.txt", g)
-diff = statistics.getDiffValue(g, sub_g, MTranks, sub_MTranks, genes)
+k = round(gene_num / 20)
+diff_per_gene = {}
+genes = loadCausalGenes("data/AML_cosmic_genes.txt", g)
+count = 0
+for gene in g.nodes:
+    if g.nodes[gene].mutation_type == None and MTranks[g.gene2index[gene]] < k:
+        print('Knocking out', gene, '(', count, 'out of', k, ')')
+        count += 1
+        sub_g = g.createSubGraph(gene)
 
-print('diff:', diff)
+        sub_gene_num = len(sub_g.nodes)
+        """    
+        print('Propagating from expression...')
+        sub_GEscores, sub_GE_iterations = propagation.propagate(sub_g, 'GE')
+        sub_GEranks = sub_gene_num - sub_GEscores.argsort().argsort()
+        """
+        print('Propagating from mutation...')
+        sub_MTscores, sub_MT_iterations = propagation.propagate(sub_g, 'MT')
+        sub_MTranks = sub_gene_num - sub_MTscores.argsort().argsort()
+        '''
+        sub_g_ranks = [0 for i in range(sub_gene_num)]
+        for gene in sub_g.nodes:
+           gene_index = sub_g.gene2index[gene]
+           sub_g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
+        '''
+        
+        diff = statistics.getDiffValue(g, sub_g, MTranks, sub_MTranks, genes)
+        diff_per_gene[gene] = diff
+        print('diff:', diff)
+
+import operator
+sorted_diffs = sorted(diff_per_gene.items(), key=operator.itemgetter(1), reverse=True)
+f = open('diff_per_gene_sorted.txt', 'w')
+for gene, diff in sorted_diffs:
+    f.write(gene + '\t' + diff + '\n')
+f.close()
