@@ -17,11 +17,13 @@ g.normalizeWeights()
 gene_num = len(g.nodes)
 
 print("Working on patient", patient)
+"""
 print('Loading expression...')
 ge_loaded = loadExpressionData("data/AML_Expression.txt", g, patient)
 if (ge_loaded == 0):
     print('no expression data')
     # exit(0)
+"""
 print('Loading mutations...')
 mt_loaded = loadMutationData("data/AML_Mutations.txt", g, patient)
 if (mt_loaded == 0):
@@ -62,8 +64,7 @@ for gene in g.nodes:
         print('Knocking out', gene, '(', count, 'out of', k, ')')
         count += 1
         # sub_g = g.createSubGraph(gene)
-
-        sub_gene_num = len(sub_g.nodes)
+        # sub_gene_num = len(sub_g.nodes)
         """    
         print('Propagating from expression...')
         sub_GEscores, sub_GE_iterations = propagation.propagate(sub_g, 'GE')
