@@ -1,7 +1,7 @@
 from statistics import *
 from parsing_utils import *
 
-f = open('b2h_diff_per_gene_sorted.txt', 'r')
+f = open('diff_per_gene_sorted.txt', 'r')
 all_genes = []
 for line in f:
     gene = line.split('\t')[0]
@@ -10,7 +10,7 @@ f.close()
 
 g = DTWGraph()
 loadPPIData("data/PPI_HIPPIE.txt", g)
-causal_genes = loadCausalGenes("data/AML_cosmic_genes.txt", g)
+causal_genes = loadCausalGenes("data/cancer_cosmic_genes.txt", g)
 labels = [1 if x in causal_genes else 0 for x in all_genes]
 p, mHG_idx = mHG(labels)
 print('mHG', p, mHG_idx)

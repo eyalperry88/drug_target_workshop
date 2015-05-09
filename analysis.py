@@ -56,10 +56,12 @@ print('mutations:', mutation_num)
 healthy_dists = statistics.generateHealthyDist(g, genes, mutation_num)
 
 for gene in g.nodes:
+    if gene in genes:
+        continue
     if g.nodes[gene].mutation_type == None and MTranks[g.gene2index[gene]] < k:
         print('Knocking out', gene, '(', count, 'out of', k, ')')
         count += 1
-        sub_g = g.createSubGraph(gene)
+        # sub_g = g.createSubGraph(gene)
 
         sub_gene_num = len(sub_g.nodes)
         """    
@@ -68,16 +70,21 @@ for gene in g.nodes:
         sub_GEranks = sub_gene_num - stats.rankdata(sub_GEscores)
         """
         print('Propagating from mutation...')
-        sub_MTscores, sub_MT_iterations = propagation.propagate(sub_g, 'MT')
-        sub_MTranks = sub_gene_num - stats.rankdata(sub_MTscores)
+        #sub_MTscores, sub_MT_iterations = propagation.propagate(sub_g, 'MT')
+        #sub_MTranks = sub_gene_num - stats.rankdata(sub_MTscores)
+        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = g.gene2index[gene])
+        sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
+        
         '''
         sub_g_ranks = [0 for i in range(sub_gene_num)]
         for gene in sub_g.nodes:
            gene_index = sub_g.gene2index[gene]
            sub_g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
         '''
-        diff_b2h = statistics.getB2HValue(g, sub_g, MTranks, sub_MTranks, healthy_dists)
-        diff = statistics.getDiffValue(g, sub_g, MTranks, sub_MTranks, genes)
+        #diff_b2h = statistics.getB2HValue(g, sub_g, MTranks, sub_MTranks, healthy_dists)
+        #diff = statistics.getDiffValue(g, sub_g, MTranks, sub_MTranks, genes)
+        diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
+        diff = statistics.getDiffValue(g, g, MTranks, sub_MTranks, genes)
         diff_per_gene_b2h[gene] = diff_b2h
         diff_per_gene[gene] = diff
         print('diff:', diff)
@@ -94,3 +101,4 @@ for gene, diff in sorted_diffs:
 for gene, diff in sorted_diffs_b2h:
     f_b2h.write(gene + '\t' + str(diff) + '\n')
 f.close()
+f_b2h.close()
