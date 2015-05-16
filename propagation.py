@@ -42,7 +42,7 @@ def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.9, MAX_ITERATIONS=40, RANDOM
         F = newF
         
         if (summ < EPSILON or iterations >= MAX_ITERATIONS):
-            print('Converged after ' + str(iterations) + ' iterations')
+            # print('Converged after ' + str(iterations) + ' iterations')
             break
         iterations += 1
 
