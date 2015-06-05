@@ -18,11 +18,11 @@ print('Normalizing weights...')
 g.normalizeWeights()
 gene_num = len(g.nodes)
 
-causal_genes = loadCausalGenes("data/AML_cosmic_genes.txt", g)
+#causal_genes = loadCausalGenes("data/AML_cosmic_genes.txt", g)
 
 for i in range(len(patients)):
     patient = patients[i]
-    if os.path.isfile('output/' + patient + '_diff.txt'):
+    if os.path.isfile('output_ex/' + patient + '_diff.txt'):
         print("Skipping patient", patient, ' #' + str(i))
         continue
     
@@ -55,7 +55,8 @@ for i in range(len(patients)):
         gene_index = g.gene2index[gene]
         g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
     '''
-
+    causal_genes = loadCausalGenes("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
+            
     k = round(gene_num / 10)
     diff_per_gene = {}
     diff_per_gene_b2h = {}
@@ -78,20 +79,21 @@ for i in range(len(patients)):
             sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = g.gene2index[gene])
             sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
             
-            diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
+            #diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
             diff = statistics.getDiffValue(g, g, MTranks, sub_MTranks, causal_genes)
-            diff_per_gene_b2h[gene] = diff_b2h
+            #diff_per_gene_b2h[gene] = diff_b2h
             diff_per_gene[gene] = diff
-            print('diff:', diff, 'diff_b2h:', diff_b2h)
+            print('diff:', diff)
+            #, 'diff_b2h:', diff_b2h)
 
 
     sorted_diffs = sorted(diff_per_gene.items(), key=operator.itemgetter(1), reverse=True)
-    sorted_diffs_b2h = sorted(diff_per_gene_b2h.items(), key=operator.itemgetter(1), reverse=True)
-    f = open('output/' + patient + '_diff.txt', 'w')
-    f_b2h = open('output/' + patient + '_b2h.txt', 'w')
+    #sorted_diffs_b2h = sorted(diff_per_gene_b2h.items(), key=operator.itemgetter(1), reverse=True)
+    f = open('output_ex/' + patient + '_diff.txt', 'w')
+    #f_b2h = open('output/' + patient + '_b2h.txt', 'w')
     for gene, diff in sorted_diffs:
         f.write(gene + '\t' + str(diff) + '\n')
-    for gene, diff in sorted_diffs_b2h:
-        f_b2h.write(gene + '\t' + str(diff) + '\n')
+    #for gene, diff in sorted_diffs_b2h:
+    #    f_b2h.write(gene + '\t' + str(diff) + '\n')
     f.close()
-    f_b2h.close()
+    #f_b2h.close()

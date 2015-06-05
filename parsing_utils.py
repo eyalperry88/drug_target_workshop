@@ -1,5 +1,6 @@
 from data_structures import *
 import urllib.request
+import os
 
 'reading and parsing data helpers'
 
@@ -115,7 +116,7 @@ def loadCausalGenes(filename, graph):
         else:
             gene_true_name = checkAliases(gene, graph.nodes)
             if gene_true_name:
-                causal_genes.append(other_gene)
+                causal_genes.append(gene_true_name)
                 count_genes += 1
             else:
                 print('Could not find suitable alias for', gene)
@@ -124,3 +125,41 @@ def loadCausalGenes(filename, graph):
     file.close()
     return causal_genes
 
+def getExpressionAliases(filename, graph):
+    file = open(filename, 'r')
+    next(file) #first line has no data
+    count = 0
+    skip = 0
+    curr_patient = ''
+    for line in file:
+        gene_data = line.split('\t')
+        last_patient = curr_patient
+        curr_patient = gene_data[1]
+        if curr_patient != last_patient:
+            if os.path.isfile('data/aliases/exp/' + curr_patient + '_exp_aliases.txt'):
+                print("Skipping patient" + curr_patient)
+                skip = 1
+                continue
+            skip = 0
+            print(curr_patient)
+            print(count)
+            if count != 0:
+                f.close()
+            f = open('data/aliases/exp/' + curr_patient + '_exp_aliases.txt' ,'w')
+        if (skip == 0) :
+            if gene_data[0] in graph.nodes:
+                print(gene_data[0])
+                f.write('\n' + gene_data[0])
+                count += 1
+            else:
+                gene_true_name = checkAliases(gene_data[0], graph.nodes)
+                if gene_true_name:
+                    f.write('\n' + gene_true_name)
+                    count += 1
+                #else:
+                #   print('Could not find suitable alias for', gene_data[0])
+    print('Loaded ' + str(count) + ' differentially expressed genes.')
+    file.close()
+    f.close()
+    return count
+    
