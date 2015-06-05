@@ -3,21 +3,39 @@ import urllib.request
 
 'reading and parsing data helpers'
 
+def parseClinicalData(input, output, category_name):
+    f_in = open(input, 'r')
+    f_out = open(output, 'w')
+    first_row = True
+    category_col = -1
+    for line in f_in:
+        cells = line.strip().split('\t')
+        if first_row:
+            category_col = cells.index(category_name)
+            first_row = False
+        else:
+            f_out.write(cells[0] + '\t' + cells[category_col] + '\n')
+    f_in.close()
+    f_out.close()
+    
 def checkAliases(gene, all_genes):
     # check aliases - using UNIPROT API
-    with urllib.request.urlopen('http://www.uniprot.org/uniprot/?query='+gene+'+AND+organism:9606&format=tab&columns=genes') as response:
-        data = response.read()
-        first_row = True
-        for row in data.splitlines():
-            if first_row:
-                first_row = False
-                continue
-            genes = row.decode("utf-8").split()
-            if gene in genes:
-                for other_gene in genes:
-                    if other_gene in all_genes:
-                        print('Found alias', other_gene, 'instead of', gene)
-                        return other_gene
+    try:
+        with urllib.request.urlopen('http://www.uniprot.org/uniprot/?query='+gene+'+AND+organism:9606&format=tab&columns=genes') as response:
+            data = response.read()
+            first_row = True
+            for row in data.splitlines():
+                if first_row:
+                    first_row = False
+                    continue
+                genes = row.decode("utf-8").split()
+                if gene in genes:
+                    for other_gene in genes:
+                        if other_gene in all_genes:
+                            print('Found alias', other_gene, 'instead of', gene)
+                            return other_gene
+    except:
+        print("error for: " + gene)
     return None
 
 def loadExpressionData(filename, graph, patient): #add option to do it by patient?
