@@ -32,7 +32,8 @@ for filename in filenames:
 
 patient_files = []
 subtypes = ['M3', 'M5']
-label_colors = {'M3': 'r', 'M5': 'g', 'M6' : 'b', 'M7' : 'm'}
+label_colors = {'M0' : 'r', 'M1' : 'g', 'M2' : 'b', 'M3' : 'c', 'M4' : 'm', 'M5' : 'y'}
+subtypes = list(label_colors.keys()) + ['M6', 'M7']
 filenames = os.listdir(DIR)
 for filename in filenames:
     patient = filename[:12]
@@ -73,10 +74,84 @@ Y = pdist(X, metric='jaccard')
 Z = linkage(Y, method='complete', metric='jaccard')
 
 plt.clf()
-dendrogram(Z, labels=labels, orientation='left', color_threshold=0)
+dendrogram(Z, labels=labels, orientation='left', color_threshold=0, leaf_font_size=6)
 ax = plt.gca()
 xlbls = ax.get_ymajorticklabels()
 for lbl in xlbls:
     if lbl.get_text() in label_colors:
         lbl.set_color(label_colors[lbl.get_text()])
 plt.savefig("test.png", dpi = 800)
+
+
+dists_per_type = {'M0' : [], 'M1' : [], 'M2' : [], 'M3' : [], 'M4' : [], 'M5' : [],
+                 'M6' : [], 'M7' : []}
+dists_between_M3 = []
+dists_M3_and_others = []
+dists_others = []
+dists_between = []
+dists_among = []
+idx = 0
+for i in range(len(labels) - 1):
+    for j in range(i + 1, len(labels)):
+        if labels[i] == labels[j]:
+            if labels[i] == 'M3':
+                dists_between_M3.append(Y[idx])
+            else:
+                dists_M3_and_others.append(Y[idx])
+            dists_per_type[labels[i]].append(Y[idx])
+            dists_between.append(Y[idx])
+        else:
+            if labels[i] == 'M3' or labels[j] == 'M3':
+                dists_M3_and_others.append(Y[idx])
+            else:
+                dists_others.append(Y[idx])
+            dists_among.append(Y[idx])
+        idx += 1
+mean_per_type = {}
+for subtype in dists_per_type:
+    mean_per_type[subtype] = np.mean(dists_per_type[subtype])
+var_per_type = {}
+for subtype in dists_per_type:
+    var_per_type[subtype] = np.var(dists_per_type[subtype])
+
+plt.clf()
+plt.hist(dists_between, bins=18, histtype='step', color='b', normed=True, label='Between Same Type')
+plt.hist(dists_among, bins=18, histtype='step', color='r', normed=True, label='Among Different Types')
+plt.hist(dists_between_M3, bins=18, histtype='step', color='y', normed=True, label='Between M3 Type')
+plt.hist(dists_M3_and_others, bins=18, histtype='step', color='g', normed=True, label='M3 Type vs. Other Types')
+plt.title("Distributions of Similiarities")
+plt.legend(loc=2)
+plt.savefig("hist.png", dpi = 800)
+
+np.random.shuffle(Y)
+
+dists_between_M3 = []
+dists_M3_and_others = []
+dists_others = []
+dists_between = []
+dists_among = []
+idx = 0
+for i in range(len(labels) - 1):
+    for j in range(i + 1, len(labels)):
+        if labels[i] == labels[j]:
+            if labels[i] == 'M3':
+                dists_between_M3.append(Y[idx])
+            else:
+                dists_M3_and_others.append(Y[idx])
+            dists_between.append(Y[idx])
+        else:
+            if labels[i] == 'M3' or labels[j] == 'M3':
+                dists_M3_and_others.append(Y[idx])
+            else:
+                dists_others.append(Y[idx])
+            dists_among.append(Y[idx])
+        idx += 1
+
+plt.clf()
+plt.hist(dists_between, bins=18, histtype='step', color='b', normed=True, label='Between Same Type')
+plt.hist(dists_among, bins=18, histtype='step', color='r', normed=True, label='Among Different Types')
+plt.hist(dists_between_M3, bins=18, histtype='step', color='y', normed=True, label='Between Pseudo-M3 Type')
+plt.hist(dists_M3_and_others, bins=18, histtype='step', color='g', normed=True, label='Pseudo-M3 Type vs. Other Types')
+plt.title("Distributions of Random Similiarities")
+plt.legend(loc=2)
+plt.savefig("hist_rand.png", dpi = 800)
