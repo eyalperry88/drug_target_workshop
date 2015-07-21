@@ -7,7 +7,7 @@ times = {'prior_time' : 0,
 'propogate_time' : 0,
 'converge_time' : 0}
 
-def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.9, MAX_ITERATIONS=40, RANDOM_PRIORS=0, KNOCKOUT_IDX = -1):
+def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.9, MAX_ITERATIONS=40, RANDOM_PRIORS=0, KNOCKOUT_IDX = []):
     global times
     
     n = len(g.nodes)
@@ -35,8 +35,8 @@ def propagate(g, prior, EPSILON = 0.0001, ALPHA = 0.9, MAX_ITERATIONS=40, RANDOM
     iterations = 1
     while True:
         newF = g.W.dot(ALPHA * F) + Y
-        if (KNOCKOUT_IDX >= 0):
-            newF[KNOCKOUT_IDX] = 0
+        for knock in KNOCKOUT_IDX:
+            newF[knock] = 0
         
         summ = np.sum((newF - F)**2)
         F = newF
