@@ -30,7 +30,7 @@ def loadExpressionData(filename, graph, patient): #add option to do it by patien
     count = 0
     for line in file:
         gene_data = line.split('\t')
-        if gene_data[1] == patient:
+        if gene_data[1] == patient or patient == 'ALL':
             if gene_data[0] in graph.nodes:
                 node = graph.nodes[gene_data[0]]
                 node.expression_level = gene_data[2]
@@ -53,7 +53,7 @@ def loadMutationData(filename, graph, patient): #same...
     count = 0
     for line in file:
         gene_data = line.split('\t')
-        if gene_data[1] == patient:
+        if gene_data[1] == patient or patient == 'ALL':
             if gene_data[0] in graph.nodes:
                 #filter by status?
                 graph.nodes[gene_data[0]].mutation_type = gene_data[4]
@@ -64,11 +64,32 @@ def loadMutationData(filename, graph, patient): #same...
                     graph.nodes[gene_true_name].mutation_type = gene_data[4]
                     count += 1
                 else:
-                    print('Could not find suitable alias for', gene_data[0])
+                    pass
+                    # print('Could not find suitable alias for', gene_data[0])
                     
     print('Loaded ' + str(count) + ' mutated genes.')
     file.close()
     return count
+    
+def getMutations(filename, graph, patient): #same...
+    file = open(filename, 'r')
+    next(file) #first line has no data
+    count = 0
+    mut = []
+    for line in file:
+        gene_data = line.split('\t')
+        if gene_data[1] == patient or patient == 'ALL':
+            if gene_data[0] in graph.nodes:
+                #filter by status?
+                mut.append(gene_data[0])
+            else:
+                gene_true_name = checkAliases(gene_data[0], graph.nodes)
+                if gene_true_name:
+                    mut.append(gene_true_name)
+                else:
+                    print('Could not find suitable alias for', gene_data[0])
+    file.close()
+    return mut
 
 def loadPPIData(filename, graph):
     file = open(filename, 'r')
