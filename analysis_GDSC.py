@@ -32,26 +32,31 @@ for line in mut_f:
         mut_per_patient[pat] = [gen]
 mut_f.close()
 
-f_akt = open('output_validations/per_knockout/AKT.txt', 'w')
-f_pim = open('output_validations/per_knockout/PIM.txt', 'w')
-f_pim_akt = open('output_validations/per_knockout/PIM+AKT.txt', 'w')
-f_pi3k = open('output_validations/per_knockout/PI3K.txt', 'w')
-f_mek = open('output_validations/per_knockout/MEK.txt', 'w')
-f_skipped = open('output_validations/skipped.txt', 'w')
+drugs = ['AP-24534', 'AZD7762', 'Bosutinib', 'CEP-701', 
+         'FH535', 'GW441756', 'Sorafenib', 'Sunitinib']
+         
+f_outputs = {}
+targets = {}
+for drug in drugs:
+    f_outputs[drug] = open('GDSC/results_per_drug/' + drug + '.txt', 'w')
+    
+    f_tmp = open('GDSC/' + drug + '.txt', 'r')
+    tmp_targets = []
+    for line in f_tmp:
+        tmp_targets.append(line.strip())
+    f_tmp.close()
+    
+    targets[drug] = tmp_targets
 
 for i in range(len(patients)):
     patient = patients[i]
-    """
-    if os.path.isfile('output_b2h/' + patient + '_diff.txt'):
-        print("Skipping patient", patient, ' #' + str(i))
-        continue
-    """
+    
     """
     if patient not in mut_per_patient or 'FLT3' not in mut_per_patient[patient]:
         f_skipped.write('Skipping ' + patient + ' (1)\n')+
         continue
     """
-    if patient in FLT_patients:
+    if patient not in FLT_patients:
         continue
     
     print("Working on patient", patient, ' #' + str(i))
@@ -61,7 +66,7 @@ for i in range(len(patients)):
     mt_loaded = loadMutationData("data/AML_Mutations.txt", g, patient)
     if (mt_loaded == 0):
         print('no mutation data') 
-        f_skipped.write('Skipping ' + patient + ' (2)\n')
+        # f_skipped.write('Skipping ' + patient + ' (2)\n')
         continue
     
     """
@@ -78,11 +83,12 @@ for i in range(len(patients)):
     try:
         causal_genes = loadCausalGenes("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
     except:
-        f_skipped.write('Skipping ' + patient + ' (4)\n')
+        # f_skipped.write('Skipping ' + patient + ' (4)\n')
         continue
-    for x in ['PIM1', 'PIM2', 'PIM3', 'AKT1', 'AKT2', 'AKT3', 'PK3CA', 'MP2K1', 'MP2K2']:
-        if x in causal_genes:
-            causal_genes.remove(x)
+    for drug in drugs:
+        for x in targets[drug]:
+            if x in causal_genes:
+                causal_genes.remove(x)
     
     diff_per_gene_b2h = {}
     
@@ -94,114 +100,26 @@ for i in range(len(patients)):
     print('mutations:', mutation_num)
     healthy_dists = statistics.generateHealthyDist(g, causal_genes, mutation_num)
 
-    f = open('output_validations/' + patient + '.txt', 'w')
-    print('\n')
-    print('PIM knockout')
-    gene_indices_PIM = []
-    for gene in ['PIM1', 'PIM2', 'PIM3']:
-        if gene in causal_genes:
-            print(gene, 'is in causal genes')
-            break
-        if g.nodes[gene].mutation_type != None:
-            print(gene, 'is mutated')
-            break
-        gene_indices_PIM.append(g.gene2index[gene])
-    if len(gene_indices_PIM) == 3:
-        print('Knock knock knock!')
+    for drug in drugs:
+        print('\n', drug, 'knockout')
         
-        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = gene_indices_PIM)
-        sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
+        gene_indices = []
+        for gene in targets[drug]:
+            """
+            if g.nodes[gene].mutation_type != None:
+                print(gene, 'is mutated')
+                break
+            """
+            gene_indices.append(g.gene2index[gene])
+        if len(gene_indices) == len(targets[drug]):
+            sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = gene_indices)
+            sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
             
-        diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
-        
-        f.write('PIM\t' + str(diff_b2h) + '\n')
-        f_pim.write(str(diff_b2h) + '\n')
-        print('B2H:', diff_b2h)
-    
-    print()
-    print('AKT knockout')
-    gene_indices_AKT = []
-    for gene in ['AKT1', 'AKT2', 'AKT3']:
-        if gene in causal_genes:
-            print(gene, 'is in causal genes')
-            break
-        if g.nodes[gene].mutation_type != None:
-            print(gene, 'is mutated')
-            break
-        gene_indices_AKT.append(g.gene2index[gene])
-    if len(gene_indices_AKT) == 3:
-        print('Knock knock knock!')
-        
-        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = gene_indices_AKT)
-        sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
+            diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
             
-        diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
-            
-        f.write('AKT\t' + str(diff_b2h) + '\n')
-        f_akt.write(str(diff_b2h) + '\n')
-        print('B2H:', diff_b2h)
-        
-    print()
-    print('PIM+AKT knockout')
-    gene_indices = gene_indices_AKT + gene_indices_PIM
-    if len(gene_indices) == 6:
-        print('Knock knock knock!')
-        
-        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = gene_indices)
-        sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
-            
-        diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
-            
-        f.write('PIM+AKT\t' + str(diff_b2h) + '\n')
-        f_pim_akt.write(str(diff_b2h) + '\n')
-        print('B2H:', diff_b2h)
-        
-    print()
-    print('PI3K knockout')
-    if g.nodes['PK3CA'].mutation_type != None:
-        print('PK3CA is mutated')
-    else:
-        print('Knock knock knock!')
-        
-        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = [g.gene2index['PK3CA']])
-        sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
-            
-        diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
-            
-        f.write('PK3CA\t' + str(diff_b2h) + '\n')
-        f_pi3k.write(str(diff_b2h) + '\n')
-        print('B2H:', diff_b2h)
-        
-    print()
-    print('MEK knockout')
-    gene_indices_MEK = []
-    for gene in ['MP2K1', 'MP2K2']:
-        if gene in causal_genes:
-            print(gene, 'is in causal genes')
-            break
-        if g.nodes[gene].mutation_type != None:
-            print(gene, 'is mutated')
-            break
-        gene_indices_MEK.append(g.gene2index[gene])
-    if len(gene_indices_MEK) == 2:
-        print('Knock knock knock!')
-        
-        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = gene_indices_MEK)
-        sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
-            
-        diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
-            
-        f.write('MEK\t' + str(diff_b2h) + '\n')
-        f_mek.write(str(diff_b2h) + '\n')
-        print('B2H:', diff_b2h)
+            f_outputs[drug].write(str(diff_b2h) + '\n')
+            print('B2H:', diff_b2h)
+        print()
 
-    print('\n')    
-    f.close()
-
-
-f_akt.close()
-f_pim.close()
-f_pim_akt.close()
-f_pi3k.close()
-f_mek.close()
-f_skipped.close()
+for drug in drugs:
+    f_outputs[drug].close()
