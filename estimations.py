@@ -92,26 +92,26 @@ for patient in patients:
         continue;
         
     g.initGraph()
-    """
+    
     print('Loading expression...')
-    ge_loaded = loadExpressionData("data/AML_Expression.txt", g, patient)
+    ge_loaded = loadExpressionData2("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
     if (ge_loaded == 0):
         print('no expression data')
         continue
-    """
+    
     print('Loading mutations...')
     mt_loaded = loadMutationData("data/AML_Mutations.txt", g, patient)
     if (mt_loaded == 0):
         print('no mutation data')        
         continue
-    """
+    
     print('Propagating from expression...')
-    GEscores, GE_iterations = propagation.propagate(g, 'GE')
+    GEscores, GE_iterations = propagation.propagate(g, 'GE', ALPHA = 0.5)
     run_stats['expression_iterations'].append(GE_iterations)
     GEranks = gene_num - stats.rankdata(GEscores)
-    """
+    
     print('Propagating from mutation...')
-    MTscores, MT_iterations = propagation.propagate(g, 'MT')
+    MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA = 0.5)
     run_stats['mutation_iterations'].append(MT_iterations)
     MTranks = gene_num - stats.rankdata(MTscores)
     
@@ -121,7 +121,9 @@ for patient in patients:
     results_de[patient] = {}
     for gene in g.nodes:
         results_mut[patient][gene] = MTranks[g.gene2index[gene]]
-
+        results_de[patient][gene] = GEranks[g.gene2index[gene]]
+        results_max[patient][gene] = max(MTranks[g.gene2index[gene]], GEranks[g.gene2index[gene]])
+        results_avg[patient][gene] = (MTranks[g.gene2index[gene]] + GEranks[g.gene2index[gene]]) / 2
 actual_patients = list(results_mut.keys())    
 
 
@@ -140,16 +142,9 @@ for i in range(0, len(actual_patients)):
 threshold = len(actual_patients) / 2
 """
 sum_of_ranks = np.zeros(gene_num)
-count_below = 0
-count_above = 0
 for patient in actual_patients:
     for gene in results_mut[patient]:
         sum_of_ranks[g.gene2index[gene]] += results_mut[patient][gene]
-        if gene == 'FLT3':
-            if results_mut[patient][gene] < k:
-                count_below += 1
-            else:
-                count_above += 1
 ranked_sum_of_ranks = sum_of_ranks.argsort().argsort()
 for gene in g.nodes:
     if ranked_sum_of_ranks[g.gene2index[gene]] <= k:
@@ -157,17 +152,6 @@ for gene in g.nodes:
 threshold = 0
 
 
-igenes = ["NPM","FLT3","DNM3A","RUNX1","IDHP","IDHC","TET2","RARA","PML","RASN",
-"P53","CEBPA","WT1","PEBB","MYH11","KMT2A","PTN11","KIT","MTG8","U2AF1",
-"RASK","SMC1A","SMC3"]
-
-for igene in igenes:
-    if igene in g.nodes:
-        if igene in observed and observed[igene] == 1:
-            print(igene,'is in the top')
-    else:
-        print('bad name!', igene)
-"""
 causal_genes = loadCausalGenes("data/AML_KEGG_genes.txt", g)
 causal_gene_hits = 0
 above_threshold_genes = 0
@@ -210,6 +194,7 @@ p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_thre
 print('p-value: ' + str(p))
 print('-log(p-value): ' + str(-np.log10(p)))
 
+"""
 causal_genes = loadCausalGenes("data/AML_drug_targets.txt", g)
 causal_gene_hits = 0
 above_threshold_genes = 0
@@ -223,7 +208,6 @@ print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
 p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)
 print('p-value: ' + str(p))
 print('-log(p-value): ' + str(-np.log10(p)))
-
 
 total_ranks = np.zeros(gene_num)
 for patient in actual_patients:

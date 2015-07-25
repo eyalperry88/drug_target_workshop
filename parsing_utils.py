@@ -46,6 +46,18 @@ def loadExpressionData(filename, graph, patient): #add option to do it by patien
     print('Loaded ' + str(count) + ' differentially expressed genes.')
     file.close()
     return count
+    
+def loadExpressionData2(filename, graph):
+    file = open(filename, 'r')
+    count = 0
+    for line in file:
+        gene = line.strip()
+        if gene in graph.nodes:
+            graph.nodes[gene].expression_level = 'Y'
+            count += 1
+    print('Loaded ' + str(count) + ' differentially expressed genes.')
+    file.close()
+    return count
 
 def loadMutationData(filename, graph, patient): #same...
     file = open(filename, 'r')
