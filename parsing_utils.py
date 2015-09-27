@@ -76,8 +76,7 @@ def loadMutationData(filename, graph, patient): #same...
                     graph.nodes[gene_true_name].mutation_type = gene_data[4]
                     count += 1
                 else:
-                    pass
-                    # print('Could not find suitable alias for', gene_data[0])
+                    print('Could not find suitable alias for', gene_data[0])
                     
     print('Loaded ' + str(count) + ' mutated genes.')
     file.close()

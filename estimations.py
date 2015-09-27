@@ -81,6 +81,10 @@ results_avg = {}
 results_max = {}
 results_mut = {}
 results_de = {}
+results_avg2 = {}
+results_max2 = {}
+results_mut2 = {}
+results_de2 = {}
 run_stats = {'expression_iterations' : [], 'mutation_iterations' : []}
 
 count_patient = 1
@@ -105,30 +109,48 @@ for patient in patients:
         print('no mutation data')        
         continue
     
+    
     print('Propagating from expression...')
-    GEscores, GE_iterations = propagation.propagate(g, 'GE', ALPHA = 0.5)
-    run_stats['expression_iterations'].append(GE_iterations)
+    GEscores, GE_iterations = propagation.propagate(g, 'GE', ALPHA = 0.9)
     GEranks = gene_num - stats.rankdata(GEscores)
     
     print('Propagating from mutation...')
-    MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA = 0.5)
-    run_stats['mutation_iterations'].append(MT_iterations)
+    MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA = 0.9)
     MTranks = gene_num - stats.rankdata(MTscores)
+    
+    print('Propagating from expression2...')
+    GEscores2, GE_iterations2 = propagation.propagate(g, 'GE', ALPHA = 0.5)
+    GEranks2 = gene_num - stats.rankdata(GEscores2)
+    
+    print('Propagating from mutation2...')
+    MTscores2, MT_iterations2 = propagation.propagate(g, 'MT', ALPHA = 0.5)
+    MTranks2 = gene_num - stats.rankdata(MTscores2)
     
     results_avg[patient] = {}
     results_max[patient] = {}
     results_mut[patient] = {}
     results_de[patient] = {}
+    
+    results_avg2[patient] = {}
+    results_max2[patient] = {}
+    results_mut2[patient] = {}
+    results_de2[patient] = {}
     for gene in g.nodes:
         results_mut[patient][gene] = MTranks[g.gene2index[gene]]
         results_de[patient][gene] = GEranks[g.gene2index[gene]]
         results_max[patient][gene] = max(MTranks[g.gene2index[gene]], GEranks[g.gene2index[gene]])
         results_avg[patient][gene] = (MTranks[g.gene2index[gene]] + GEranks[g.gene2index[gene]]) / 2
+        
+        results_mut2[patient][gene] = MTranks2[g.gene2index[gene]]
+        results_de2[patient][gene] = GEranks2[g.gene2index[gene]]
+        results_max2[patient][gene] = max(MTranks2[g.gene2index[gene]], GEranks2[g.gene2index[gene]])
+        results_avg2[patient][gene] = (MTranks2[g.gene2index[gene]] + GEranks2[g.gene2index[gene]]) / 2
 actual_patients = list(results_mut.keys())    
 
 
 
 k = round(gene_num / 10) # using top 10 percent
+k = 816
 expected = {}
 observed = {}
 """
@@ -188,6 +210,24 @@ for gene in observed:
         above_threshold_genes += 1
         if gene in causal_genes:
             causal_gene_hits += 1
+print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)) + '(above threshold: ' + str(above_threshold_genes) + ')')
+print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
+p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)
+print('p-value: ' + str(p))
+print('-log(p-value): ' + str(-np.log10(p)))
+
+causal_genes = loadCausalGenes("data/KEGG2.txt", g)
+causal_gene_hits = 0
+above_threshold_genes = 0
+f_tmp = open('tmp.txt', 'w')
+for gene in observed:
+    if observed[gene] > threshold:
+        above_threshold_genes += 1
+        if gene in causal_genes:
+            causal_gene_hits += 1
+            print(gene)
+            f_tmp.write(gene + '\n')
+f_tmp.close()
 print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)) + '(above threshold: ' + str(above_threshold_genes) + ')')
 print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
 p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)
