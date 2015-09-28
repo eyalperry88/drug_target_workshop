@@ -26,14 +26,16 @@ for i in range(len(patients)):
     patient = patients[i]
     
     print('Loading mutations for patient', patient, ' #' + str(i))
-    mutations = getMutations("data/AML_Mutations.txt", g, patient)
+    mut_filename = 'data/aliases/mut/' + patient + '_mut_aliases.txt'
+    if os.path.isfile(mut_filename):
+        mutations = loadCausalGenesNoAliasesCheck(mut_filename, g)
     for mut in mutations:
         if mut in mutation_count:
             mutation_count[mut] += 1
         else:
             mutation_count[mut] = 1
-    
-    de_genes = loadCausalGenes("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
+    print('Loading expression data for patient', patient, ' #' + str(i))
+    de_genes = loadCausalGenesNoAliasesCheck("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
     for de in de_genes:
         if de in de_count:
             de_count[de] += 1
