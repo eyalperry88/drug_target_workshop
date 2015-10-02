@@ -1,3 +1,5 @@
+""" Calculates B2H scores for all patients """
+
 from parsing_utils import *
 import propagation
 import statistics
