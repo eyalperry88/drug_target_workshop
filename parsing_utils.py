@@ -59,6 +59,18 @@ def loadExpressionData2(filename, graph):
     file.close()
     return count
 
+def loadMutationData2(filename, graph):
+    file = open(filename, 'r')
+    count = 0
+    for line in file:
+        gene = line.strip()
+        if gene in graph.nodes:
+            graph.nodes[gene].mutation_type = 'Y'
+            count += 1
+    print('Loaded ' + str(count) + ' mutated genes.')
+    file.close()
+    return count
+
 def loadMutationData(filename, graph, patient): #same...
     file = open(filename, 'r')
     next(file) #first line has no data

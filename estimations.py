@@ -3,7 +3,7 @@ import propagation
 import numpy as np
 import operator
 from scipy import stats
-from statistics import *
+import statistics
 
 """
 # top 10:
@@ -96,28 +96,30 @@ for patient in patients:
         continue;
         
     g.initGraph()
-    
+    '''   
     print('Loading expression...')
     ge_loaded = loadExpressionData2("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
     if (ge_loaded == 0):
         print('no expression data')
         continue
-    
+    '''   
     print('Loading mutations...')
-    mt_loaded = loadMutationData("data/AML_Mutations.txt", g, patient)
-    if (mt_loaded == 0):
+    curr_file = "data/aliases/mut/" + patient + "_mut_aliases.txt"
+    if os.path.isfile(curr_file):
+        mt_loaded = loadMutationData2(curr_file, g)
+    else:
         print('no mutation data')        
         continue
     
-    
+    '''   
     print('Propagating from expression...')
     GEscores, GE_iterations = propagation.propagate(g, 'GE', ALPHA = 0.9)
     GEranks = gene_num - stats.rankdata(GEscores)
-    
+    '''   
     print('Propagating from mutation...')
-    MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA = 0.9)
+    MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA = 0)
     MTranks = gene_num - stats.rankdata(MTscores)
-    
+    '''   
     print('Propagating from expression2...')
     GEscores2, GE_iterations2 = propagation.propagate(g, 'GE', ALPHA = 0.5)
     GEranks2 = gene_num - stats.rankdata(GEscores2)
@@ -125,18 +127,20 @@ for patient in patients:
     print('Propagating from mutation2...')
     MTscores2, MT_iterations2 = propagation.propagate(g, 'MT', ALPHA = 0.5)
     MTranks2 = gene_num - stats.rankdata(MTscores2)
-    
+    '''    
     results_avg[patient] = {}
     results_max[patient] = {}
     results_mut[patient] = {}
     results_de[patient] = {}
-    
+    '''   
     results_avg2[patient] = {}
     results_max2[patient] = {}
     results_mut2[patient] = {}
     results_de2[patient] = {}
+    '''
     for gene in g.nodes:
         results_mut[patient][gene] = MTranks[g.gene2index[gene]]
+        '''
         results_de[patient][gene] = GEranks[g.gene2index[gene]]
         results_max[patient][gene] = max(MTranks[g.gene2index[gene]], GEranks[g.gene2index[gene]])
         results_avg[patient][gene] = (MTranks[g.gene2index[gene]] + GEranks[g.gene2index[gene]]) / 2
@@ -145,12 +149,13 @@ for patient in patients:
         results_de2[patient][gene] = GEranks2[g.gene2index[gene]]
         results_max2[patient][gene] = max(MTranks2[g.gene2index[gene]], GEranks2[g.gene2index[gene]])
         results_avg2[patient][gene] = (MTranks2[g.gene2index[gene]] + GEranks2[g.gene2index[gene]]) / 2
+        '''
 actual_patients = list(results_mut.keys())    
 
 
 
 k = round(gene_num / 10) # using top 10 percent
-k = 816
+#k = 816
 expected = {}
 observed = {}
 """
