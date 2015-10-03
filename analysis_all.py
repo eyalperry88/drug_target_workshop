@@ -1,6 +1,8 @@
+""" Calculates B2H score for the consesus patient """
+
 from parsing_utils import *
 import propagation
-from statistics import *
+import statistics
 import numpy
 from scipy import stats
 import sys
@@ -78,7 +80,7 @@ for gene in g.nodes:
         print('Knocking out', gene, '(', count, 'out of', k, ')')
         count += 1
     
-        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = g.gene2index[gene])
+        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = [g.gene2index[gene]])
         sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
         
         diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
@@ -98,7 +100,7 @@ f.close()
 
 print('stats for diff score')
 
-drug_targets = loadCausalGenes("data/AML_census_genes.txt", g)
+drug_targets = loadCausalGenes("data/AML_drug_targets.txt", g)
 
 labels = [1 if x in drug_targets else 0 for x in sorted_genes]
 p, mHG_idx = mHG(labels)
