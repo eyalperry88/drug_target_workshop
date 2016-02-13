@@ -57,7 +57,7 @@ for i in range(len(patients)):
         gene_index = g.gene2index[gene]
         g_ranks[gene_index] = max(GEranks[gene_index], MTranks[gene_index])
     '''
-    causal_genes = loadCausalGenes("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
+    causal_genes = loadGenes("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
             
     k = round(gene_num / 10)
     diff_per_gene = {}

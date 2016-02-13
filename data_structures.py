@@ -1,3 +1,4 @@
+""" Graph data structures """
 import numpy as np
 import copy
 from scipy import sparse

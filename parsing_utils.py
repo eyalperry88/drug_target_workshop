@@ -1,5 +1,5 @@
 from data_structures import *
-import urllib.request
+import urllib
 import os
 
 'reading and parsing data helpers'
@@ -40,6 +40,7 @@ def checkAliases(gene, all_genes):
     return None
 
 def loadExpressionData(filename, graph, patient): #add option to do it by patient?
+    """ Load expression data onto the graph """
     file = open(filename, 'r')
     next(file) #first line has no data
     count = 0
@@ -61,32 +62,9 @@ def loadExpressionData(filename, graph, patient): #add option to do it by patien
     print('Loaded ' + str(count) + ' differentially expressed genes.')
     file.close()
     return count
-    
-def loadExpressionData2(filename, graph):
-    file = open(filename, 'r')
-    count = 0
-    for line in file:
-        gene = line.strip()
-        if gene in graph.nodes:
-            graph.nodes[gene].expression_level = 'Y'
-            count += 1
-    print('Loaded ' + str(count) + ' differentially expressed genes.')
-    file.close()
-    return count
 
-def loadMutationData2(filename, graph):
-    file = open(filename, 'r')
-    count = 0
-    for line in file:
-        gene = line.strip()
-        if gene in graph.nodes:
-            graph.nodes[gene].mutation_type = 'Y'
-            count += 1
-    print('Loaded ' + str(count) + ' mutated genes.')
-    file.close()
-    return count
-
-def loadMutationData(filename, graph, patient): #same...
+def loadMutationData(filename, graph, patient): 
+    """ Load mutation data onto the graph """
     file = open(filename, 'r')
     next(file) #first line has no data
     count = 0
@@ -109,7 +87,8 @@ def loadMutationData(filename, graph, patient): #same...
     file.close()
     return count
     
-def getMutations(filename, graph, patient): #same...
+def getMutations(filename, graph, patient): 
+    """ Returns a list of mutations of the patient """
     file = open(filename, 'r')
     next(file) #first line has no data
     count = 0
@@ -130,6 +109,7 @@ def getMutations(filename, graph, patient): #same...
     return mut
 
 def loadPPIData(filename, graph):
+    """ Generates the graph from PPI data file """
     file = open(filename, 'r')
     count_nodes = 0
     count_edges = 0
@@ -147,7 +127,9 @@ def loadPPIData(filename, graph):
     file.close()
     
 
-def loadCausalGenes(filename, graph):
+def loadGenes(filename, graph):
+    """ Load a set of genes from file, keeping onlt those who appear on the 
+        graph, using alias checking for genes that initally do not appear """
     file = open(filename, 'r')
     count_genes = 0
     count_bad = 0
@@ -169,7 +151,9 @@ def loadCausalGenes(filename, graph):
     file.close()
     return causal_genes
 
-def loadCausalGenesNoAliasesCheck(filename, graph):
+def loadGenesNoAliasesCheck(filename, graph):
+    """ Load a set of genes from file, keeping onlt those who appear on the 
+        graph, without alias checking """
     file = open(filename, 'r')
     count_genes = 0
     count_bad = 0
@@ -184,6 +168,8 @@ def loadCausalGenesNoAliasesCheck(filename, graph):
     return causal_genes
 
 def getExpressionAliases(filename, graph):
+    """ Generates a patient-specific files with DE gene names as they appear in
+        the graph """
     file = open(filename, 'r')
     next(file) #first line has no data
     count = 0
@@ -222,6 +208,8 @@ def getExpressionAliases(filename, graph):
     return count
 
 def getMutationAliases(filename, graph):
+    """ Generates a patient-specific files with mutated gene names as they 
+        appear in the graph """
     file = open(filename, 'r')
     next(file) #first line has no data
     count = 0

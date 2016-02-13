@@ -30,14 +30,14 @@ for i in range(len(patients)):
     print('Loading mutations for patient', patient, ' #' + str(i))
     mut_filename = 'data/aliases/mut/' + patient + '_mut_aliases.txt'
     if os.path.isfile(mut_filename):
-        mutations = loadCausalGenesNoAliasesCheck(mut_filename, g)
+        mutations = loadGenesNoAliasesCheck(mut_filename, g)
     for mut in mutations:
         if mut in mutation_count:
             mutation_count[mut] += 1
         else:
             mutation_count[mut] = 1
     print('Loading expression data for patient', patient, ' #' + str(i))
-    de_genes = loadCausalGenesNoAliasesCheck("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
+    de_genes = loadGenesNoAliasesCheck("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
     for de in de_genes:
         if de in de_count:
             de_count[de] += 1
