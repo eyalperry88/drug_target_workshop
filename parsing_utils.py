@@ -1,8 +1,8 @@
+""" reading and parsing data helpers """
+
 from data_structures import *
 import urllib
 import os
-
-'reading and parsing data helpers'
 
 def parseClinicalData(input, output, category_name):
     f_in = open(input, 'r')
