@@ -3,65 +3,7 @@ import propagation
 import numpy as np
 import operator
 from scipy import stats
-from statistics import *
-
-"""
-# top 10:
-patients = ["TCGA-AB-2803-03",
-"TCGA-AB-2805-03",
-"TCGA-AB-2806-03",
-"TCGA-AB-2807-03",
-"TCGA-AB-2810-03",
-"TCGA-AB-2811-03",
-"TCGA-AB-2812-03",
-"TCGA-AB-2813-03",
-"TCGA-AB-2814-03",
-"TCGA-AB-2815-03"]
-"""
-"""
-# bottom 40
-patients = [
-"TCGA-AB-2980-03",
-"TCGA-AB-2981-03",
-"TCGA-AB-2982-03",
-"TCGA-AB-2983-03",
-"TCGA-AB-2984-03",
-"TCGA-AB-2985-03",
-"TCGA-AB-2986-03",
-"TCGA-AB-2987-03",
-"TCGA-AB-2988-03",
-"TCGA-AB-2990-03",
-"TCGA-AB-2991-03",
-"TCGA-AB-2992-03",
-"TCGA-AB-2993-03",
-"TCGA-AB-2994-03",
-"TCGA-AB-2995-03",
-"TCGA-AB-2996-03",
-"TCGA-AB-2998-03",
-"TCGA-AB-2999-03",
-"TCGA-AB-3000-03",
-"TCGA-AB-3001-03",
-"TCGA-AB-3002-03",
-"TCGA-AB-3005-03",
-"TCGA-AB-3006-03",
-"TCGA-AB-3007-03",
-"TCGA-AB-3008-03",
-"TCGA-AB-3009-03",
-"TCGA-AB-3011-03",
-"TCGA-AB-3012-03",
-"TCGA-AB-2921-03",
-"TCGA-AB-2882-03",
-"TCGA-AB-2858-03",
-"TCGA-AB-2927-03",
-"TCGA-AB-2909-03",
-"TCGA-AB-2808-03",
-"TCGA-AB-2946-03",
-"TCGA-AB-2944-03",
-"TCGA-AB-2853-03",
-"TCGA-AB-2828-03",
-"TCGA-AB-2822-03",
-"TCGA-AB-2935-03"]
-"""
+import statistics
 
 # top 50
 # patients = ["TCGA-AB-2803-03", "TCGA-AB-2805-03", "TCGA-AB-2806-03", "TCGA-AB-2807-03", "TCGA-AB-2810-03", "TCGA-AB-2811-03", "TCGA-AB-2812-03", "TCGA-AB-2813-03", "TCGA-AB-2814-03", "TCGA-AB-2815-03", "TCGA-AB-2816-03", "TCGA-AB-2817-03", "TCGA-AB-2818-03", "TCGA-AB-2819-03", "TCGA-AB-2820-03", "TCGA-AB-2821-03", "TCGA-AB-2823-03", "TCGA-AB-2824-03", "TCGA-AB-2825-03", "TCGA-AB-2826-03", "TCGA-AB-2830-03", "TCGA-AB-2832-03", "TCGA-AB-2833-03", "TCGA-AB-2834-03", "TCGA-AB-2835-03", "TCGA-AB-2836-03", "TCGA-AB-2837-03", "TCGA-AB-2838-03", "TCGA-AB-2839-03", "TCGA-AB-2840-03", "TCGA-AB-2841-03", "TCGA-AB-2842-03", "TCGA-AB-2843-03", "TCGA-AB-2844-03", "TCGA-AB-2845-03", "TCGA-AB-2846-03", "TCGA-AB-2847-03", "TCGA-AB-2848-03", "TCGA-AB-2849-03", "TCGA-AB-2851-03", "TCGA-AB-2854-03", "TCGA-AB-2855-03", "TCGA-AB-2856-03", "TCGA-AB-2857-03", "TCGA-AB-2859-03", "TCGA-AB-2860-03", "TCGA-AB-2861-03", "TCGA-AB-2862-03", "TCGA-AB-2863-03", "TCGA-AB-2865-03"]
@@ -81,6 +23,10 @@ results_avg = {}
 results_max = {}
 results_mut = {}
 results_de = {}
+results_avg2 = {}
+results_max2 = {}
+results_mut2 = {}
+results_de2 = {}
 run_stats = {'expression_iterations' : [], 'mutation_iterations' : []}
 
 count_patient = 1
@@ -92,43 +38,68 @@ for patient in patients:
         continue;
         
     g.initGraph()
-    
+    '''   
     print('Loading expression...')
     ge_loaded = loadExpressionData2("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
     if (ge_loaded == 0):
         print('no expression data')
         continue
-    
+    '''   
     print('Loading mutations...')
-    mt_loaded = loadMutationData("data/AML_Mutations.txt", g, patient)
-    if (mt_loaded == 0):
+    curr_file = "data/aliases/mut/" + patient + "_mut_aliases.txt"
+    if os.path.isfile(curr_file):
+        mt_loaded = loadMutationData2(curr_file, g)
+    else:
         print('no mutation data')        
         continue
     
+    '''   
     print('Propagating from expression...')
     GEscores, GE_iterations = propagation.propagate(g, 'GE', ALPHA = 0.9)
     run_stats['expression_iterations'].append(GE_iterations)
     GEranks = gene_num - stats.rankdata(GEscores)
-    
+    '''   
     print('Propagating from mutation...')
     MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA = 0.9)
     run_stats['mutation_iterations'].append(MT_iterations)
     MTranks = gene_num - stats.rankdata(MTscores)
+    '''   
+    print('Propagating from expression2...')
+    GEscores2, GE_iterations2 = propagation.propagate(g, 'GE', ALPHA = 0.5)
+    GEranks2 = gene_num - stats.rankdata(GEscores2)
     
+    print('Propagating from mutation2...')
+    MTscores2, MT_iterations2 = propagation.propagate(g, 'MT', ALPHA = 0.5)
+    MTranks2 = gene_num - stats.rankdata(MTscores2)
+    '''    
     results_avg[patient] = {}
     results_max[patient] = {}
     results_mut[patient] = {}
     results_de[patient] = {}
+    '''   
+    results_avg2[patient] = {}
+    results_max2[patient] = {}
+    results_mut2[patient] = {}
+    results_de2[patient] = {}
+    '''
     for gene in g.nodes:
         results_mut[patient][gene] = MTranks[g.gene2index[gene]]
+        '''
         results_de[patient][gene] = GEranks[g.gene2index[gene]]
         results_max[patient][gene] = max(MTranks[g.gene2index[gene]], GEranks[g.gene2index[gene]])
         results_avg[patient][gene] = (MTranks[g.gene2index[gene]] + GEranks[g.gene2index[gene]]) / 2
+        
+        results_mut2[patient][gene] = MTranks2[g.gene2index[gene]]
+        results_de2[patient][gene] = GEranks2[g.gene2index[gene]]
+        results_max2[patient][gene] = max(MTranks2[g.gene2index[gene]], GEranks2[g.gene2index[gene]])
+        results_avg2[patient][gene] = (MTranks2[g.gene2index[gene]] + GEranks2[g.gene2index[gene]]) / 2
+        '''
 actual_patients = list(results_mut.keys())    
 
 
 
 k = round(gene_num / 10) # using top 10 percent
+#k = 816
 expected = {}
 observed = {}
 """
@@ -203,7 +174,6 @@ for gene in observed:
         above_threshold_genes += 1
         if gene in causal_genes:
             causal_gene_hits += 1
-            print(gene)
 print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)) + '(above threshold: ' + str(above_threshold_genes) + ')')
 print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
 p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)

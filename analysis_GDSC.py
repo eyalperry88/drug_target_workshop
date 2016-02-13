@@ -1,3 +1,5 @@
+""" Checks B2H scores for different drugs """
+
 from parsing_utils import *
 import propagation
 import statistics

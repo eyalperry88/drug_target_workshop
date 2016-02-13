@@ -1,3 +1,5 @@
+""" Aggregates results from all patients to a single eenrichment score """
+
 import numpy as np
 import operator
 from statistics import *
@@ -37,8 +39,8 @@ for patient in patients:
 g = DTWGraph()
 loadPPIData("data/PPI_HIPPIE.txt", g)
 #drug_targets = loadCausalGenes("output/left_out.txt", g)
-#drug_targets = loadCausalGenes("data/AML_cosmic_genes.txt", g)
-drug_targets = loadCausalGenes("data/AML_drug_targets.txt", g)
+drug_targets = loadCausalGenes("data/AML_cosmic_genes.txt", g)
+#drug_targets = loadCausalGenes("data/AML_drug_targets.txt", g)
 sorted_diff = sorted(genes_total_diff.items(), key=operator.itemgetter(1), reverse=True)
 f = open('output_b2h/total_diff.txt', 'w')
 sorted_genes = []
@@ -54,7 +56,7 @@ p, mHG_idx = mHG(labels)
 print('dmHG', p, mHG_idx)
 
 gene_num = len(sorted_genes)
-k = round(gene_num / 10) # using top 10 percent
+k = round(gene_num * 0.05) # using top 10 percent
 causal_gene_hits = 0
 i = 0
 causal_genes_in_all_genes = 0

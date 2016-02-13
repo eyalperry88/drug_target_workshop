@@ -74,6 +74,18 @@ def loadExpressionData2(filename, graph):
     file.close()
     return count
 
+def loadMutationData2(filename, graph):
+    file = open(filename, 'r')
+    count = 0
+    for line in file:
+        gene = line.strip()
+        if gene in graph.nodes:
+            graph.nodes[gene].mutation_type = 'Y'
+            count += 1
+    print('Loaded ' + str(count) + ' mutated genes.')
+    file.close()
+    return count
+
 def loadMutationData(filename, graph, patient): #same...
     file = open(filename, 'r')
     next(file) #first line has no data
@@ -91,8 +103,7 @@ def loadMutationData(filename, graph, patient): #same...
                     graph.nodes[gene_true_name].mutation_type = gene_data[4]
                     count += 1
                 else:
-                    pass
-                    # print('Could not find suitable alias for', gene_data[0])
+                    print('Could not find suitable alias for', gene_data[0])
                     
     print('Loaded ' + str(count) + ' mutated genes.')
     file.close()
@@ -158,6 +169,20 @@ def loadCausalGenes(filename, graph):
     file.close()
     return causal_genes
 
+def loadCausalGenesNoAliasesCheck(filename, graph):
+    file = open(filename, 'r')
+    count_genes = 0
+    count_bad = 0
+    causal_genes = []
+    for line in file:
+        gene = line.strip()
+        if (gene != '') and (gene in graph.nodes):
+            causal_genes.append(gene)
+            count_genes += 1
+    print('Loaded ' + str(count_genes) + ' genes (' + str(count_bad) + ' not found on graph)')
+    file.close()
+    return causal_genes
+
 def getExpressionAliases(filename, graph):
     file = open(filename, 'r')
     next(file) #first line has no data
@@ -191,8 +216,46 @@ def getExpressionAliases(filename, graph):
                     count += 1
                 #else:
                 #   print('Could not find suitable alias for', gene_data[0])
-    print('Loaded ' + str(count) + ' differentially expressed genes.')
+    print('Loaded ' + str(count) + ' genes.')
     file.close()
     f.close()
     return count
-    
+
+def getMutationAliases(filename, graph):
+    file = open(filename, 'r')
+    next(file) #first line has no data
+    count = 0
+    skip = 0
+    mod = 'w'
+    curr_patient = ''
+    for line in file:
+        gene_data = line.split('\t')
+        last_patient = curr_patient
+        curr_patient = gene_data[1]
+        if curr_patient != last_patient:
+            if os.path.isfile('data/aliases/mut/' + curr_patient + '_mut_aliases.txt'):
+                mod = 'a'
+            skip = 0
+            print(curr_patient)
+            print(count)
+            if count != 0:
+                f.close()
+            f = open('data/aliases/mut/' + curr_patient + '_mut_aliases.txt' , mod)
+        if (skip == 0) :
+            if gene_data[0] in graph.nodes:
+                print(gene_data[0])
+                f.write('\n' + gene_data[0])
+                mod = 'w'
+                count += 1
+            else:
+                gene_true_name = checkAliases(gene_data[0], graph.nodes)
+                if gene_true_name:
+                    f.write('\n' + gene_true_name)
+                    mod = 'w'
+                    count += 1
+                #else:
+                #   print('Could not find suitable alias for', gene_data[0])
+    print('Loaded ' + str(count) + ' genes.')
+    file.close()
+    f.close()
+    return count    

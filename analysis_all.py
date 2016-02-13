@@ -1,6 +1,8 @@
+""" Calculates B2H score for the consesus patient """
+
 from parsing_utils import *
 import propagation
-from statistics import *
+import statistics
 import numpy
 from scipy import stats
 import sys
@@ -26,14 +28,16 @@ for i in range(len(patients)):
     patient = patients[i]
     
     print('Loading mutations for patient', patient, ' #' + str(i))
-    mutations = getMutations("data/AML_Mutations.txt", g, patient)
+    mut_filename = 'data/aliases/mut/' + patient + '_mut_aliases.txt'
+    if os.path.isfile(mut_filename):
+        mutations = loadCausalGenesNoAliasesCheck(mut_filename, g)
     for mut in mutations:
         if mut in mutation_count:
             mutation_count[mut] += 1
         else:
             mutation_count[mut] = 1
-    
-    de_genes = loadCausalGenes("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
+    print('Loading expression data for patient', patient, ' #' + str(i))
+    de_genes = loadCausalGenesNoAliasesCheck("data/aliases/exp/" + patient + "_exp_aliases.txt", g)
     for de in de_genes:
         if de in de_count:
             de_count[de] += 1
@@ -76,7 +80,7 @@ for gene in g.nodes:
         print('Knocking out', gene, '(', count, 'out of', k, ')')
         count += 1
     
-        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = g.gene2index[gene])
+        sub_MTscores, sub_MT_iterations = propagation.propagate(g, 'MT', KNOCKOUT_IDX = [g.gene2index[gene]])
         sub_MTranks = gene_num - stats.rankdata(sub_MTscores)
         
         diff_b2h = statistics.getB2HValue(g, g, MTranks, sub_MTranks, healthy_dists)
@@ -96,7 +100,7 @@ f.close()
 
 print('stats for diff score')
 
-drug_targets = loadCausalGenes("data/AML_census_genes.txt", g)
+drug_targets = loadCausalGenes("data/AML_drug_targets.txt", g)
 
 labels = [1 if x in drug_targets else 0 for x in sorted_genes]
 p, mHG_idx = mHG(labels)
