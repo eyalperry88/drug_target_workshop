@@ -106,12 +106,12 @@ for patient in patients:
         continue
     
     print('Propagating from expression...')
-    GEscores, GE_iterations = propagation.propagate(g, 'GE', ALPHA = 0.5)
+    GEscores, GE_iterations = propagation.propagate(g, 'GE', ALPHA = 0.9)
     run_stats['expression_iterations'].append(GE_iterations)
     GEranks = gene_num - stats.rankdata(GEscores)
     
     print('Propagating from mutation...')
-    MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA = 0.5)
+    MTscores, MT_iterations = propagation.propagate(g, 'MT', ALPHA = 0.9)
     run_stats['mutation_iterations'].append(MT_iterations)
     MTranks = gene_num - stats.rankdata(MTscores)
     
@@ -188,6 +188,22 @@ for gene in observed:
         above_threshold_genes += 1
         if gene in causal_genes:
             causal_gene_hits += 1
+print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)) + '(above threshold: ' + str(above_threshold_genes) + ')')
+print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
+p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)
+print('p-value: ' + str(p))
+print('-log(p-value): ' + str(-np.log10(p)))
+
+
+causal_genes = loadCausalGenes("data/KEGG2.txt", g)
+causal_gene_hits = 0
+above_threshold_genes = 0
+for gene in observed:
+    if observed[gene] > threshold:
+        above_threshold_genes += 1
+        if gene in causal_genes:
+            causal_gene_hits += 1
+            print(gene)
 print('hit ' + str(causal_gene_hits) + ' out of ' + str(len(causal_genes)) + '(above threshold: ' + str(above_threshold_genes) + ')')
 print('score: ' + str(float(causal_gene_hits) / len(causal_genes)))
 p = stats.hypergeom.sf(causal_gene_hits, gene_num, len(causal_genes), above_threshold_genes)

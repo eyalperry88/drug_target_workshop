@@ -1,4 +1,4 @@
-WORKING_DIR <- "D:/Projects/drug_target_workshop/b2h_dists"
+WORKING_DIR <- "/home/eyalp_home/uni/drug_target_workshop/b2h_dists"
 setwd(WORKING_DIR)
 
 # FLT patients
@@ -15,11 +15,10 @@ mek <- sort(mek)[1:N]
 
 df <- data.frame(PIM=pim, MEK=mek, PI3K=pi3k)
 png(filename="FLT-boxplot.png", units="in", width=8, height=8, res=300)
-boxplot(df, main="B2H distribution per known drug target", 
-        xlab="Drug Targets", ylab="B2H score",
-        boxwex=0.6)
+boxplot(df, main="", 
+        xlab="", ylab="",
+        boxwex=0.6, cex.main=1.5, cex.lab=1.4, cex.axis=1.5)
 dev.off()
-
 
 
 # non FLT patients

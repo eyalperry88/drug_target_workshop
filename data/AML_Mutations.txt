@@ -84,7 +84,7 @@ ELL	TCGA-AB-3005-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	S
 GPC2	TCGA-AB-3005-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 RSRC2	TCGA-AB-3008-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 TNC	TCGA-AB-2929-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-KRAS	TCGA-AB-2917-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
+RASK	TCGA-AB-2917-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 LILRA3	TCGA-AB-2917-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 MSH6	TCGA-AB-2819-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 COBL	TCGA-AB-2917-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -161,7 +161,7 @@ ZNF142	TCGA-AB-2819-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 MUC16	TCGA-AB-2860-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PRSS35	TCGA-AB-2939-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
 CCBL2	TCGA-AB-2917-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NRAS	TCGA-AB-2978-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2978-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 KIT	TCGA-AB-2939-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 KIT	TCGA-AB-2937-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 CHDH	TCGA-AB-2866-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -173,7 +173,7 @@ TNKS1BP1	TCGA-AB-3005-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukae
 OLFML3	TCGA-AB-2836-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CLEC18B	TCGA-AB-2917-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 COL9A3	TCGA-AB-2917-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-2963-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2963-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 KIT	TCGA-AB-2881-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 KIAA1529	TCGA-AB-2917-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 ASPN	TCGA-AB-2866-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - In frame	Variant of unknown origin
@@ -196,9 +196,9 @@ STK39	TCGA-AB-2916-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 TET2	TCGA-AB-2937-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
 MST1	TCGA-AB-2851-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Reported in another cancer sample as somatic
 GPR115	TCGA-AB-2937-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
-NPM1	TCGA-AB-2836-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
-NPM1	TCGA-AB-2826-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
-NPM1	TCGA-AB-2837-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2836-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2826-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2837-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 CD1B	TCGA-AB-2916-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 ITGB5	TCGA-AB-2881-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 LRRC47	TCGA-AB-3005-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
@@ -214,7 +214,7 @@ GLTPD2	TCGA-AB-3005-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 MAEL	TCGA-AB-2939-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 TENC1	TCGA-AB-2851-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 TBC1D2B	TCGA-AB-2860-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
-KRAS	TCGA-AB-2929-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
+RASK	TCGA-AB-2929-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 BMS1	TCGA-AB-2963-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 ZFHX3	TCGA-AB-2963-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 SULF1	TCGA-AB-2851-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -230,10 +230,10 @@ NBEAL1_ENST00000449802	TCGA-AB-2963-03	haematopoietic_and_lymphoid_tissue	acute_
 NOTCH2	TCGA-AB-2917-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
 NFX1	TCGA-AB-2836-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
 SLC16A14	TCGA-AB-2939-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Reported in another cancer sample as somatic
-KRAS	TCGA-AB-2826-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
+RASK	TCGA-AB-2826-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 CLIP2	TCGA-AB-2860-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 IDH2	TCGA-AB-2826-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NPM1	TCGA-AB-2993-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2993-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 GPR183	TCGA-AB-2993-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 ABCB1	TCGA-AB-2869-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CDHR2	TCGA-AB-2993-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -250,7 +250,7 @@ SLC27A5	TCGA-AB-2869-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaem
 SMC3	TCGA-AB-2993-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 DSCAM	TCGA-AB-2993-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 PDXDC1	TCGA-AB-2993-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NPM1	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 KIAA1109	TCGA-AB-2950-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 C1orf183	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 MGA	TCGA-AB-2950-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
@@ -261,7 +261,7 @@ VPS41	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 VPS26B	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 RREB1	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 GRID1	TCGA-AB-2950-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
-NPM1	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
+NPM	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 RARS	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PKD1	TCGA-AB-2859-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
 LHCGR	TCGA-AB-2950-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -296,7 +296,7 @@ PTCH1	TCGA-AB-2968-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 U2AF1	TCGA-AB-2968-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 BPTF	TCGA-AB-2968-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 EXOC2	TCGA-AB-2968-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
-NRAS	TCGA-AB-2968-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2968-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 WT1	TCGA-AB-2880-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
 KSR2	TCGA-AB-2968-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 EIF4B	TCGA-AB-2968-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
@@ -364,7 +364,7 @@ DNMT1	TCGA-AB-2833-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 DNAH10	TCGA-AB-2833-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 STXBP5L	TCGA-AB-2833-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 SYT15	TCGA-AB-2833-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
-NRAS	TCGA-AB-2932-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2932-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 FLT3	TCGA-AB-2918-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - In frame	Variant of unknown origin
 XIRP1	TCGA-AB-2932-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 DSG2	TCGA-AB-2932-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -372,7 +372,7 @@ LARS	TCGA-AB-2932-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 DNAH5	TCGA-AB-2918-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 UBE2R2	TCGA-AB-2932-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - In frame	Variant of unknown origin
 NELL1	TCGA-AB-2932-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-2932-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2932-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 SMC1A	TCGA-AB-2844-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 FANCM	TCGA-AB-2844-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 SLC18A1	TCGA-AB-2844-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -416,8 +416,8 @@ C1orf168	TCGA-AB-2905-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukae
 CYBB	TCGA-AB-2905-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 COL19A1	TCGA-AB-2973-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 RET	TCGA-AB-2973-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
-NPM1	TCGA-AB-2973-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
-NPM1	TCGA-AB-2973-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2973-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2973-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 ACTA2	TCGA-AB-2973-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
 ACVR2B	TCGA-AB-2973-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 STOX2	TCGA-AB-2973-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -558,7 +558,7 @@ FLT3	TCGA-AB-2925-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 GRM3	TCGA-AB-2925-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 FAM154B	TCGA-AB-2925-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 BMP10	TCGA-AB-2925-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2925-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2925-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 DLX3	TCGA-AB-2989-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 TRPC4AP	TCGA-AB-2989-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 GLT6D1	TCGA-AB-2857-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -571,7 +571,7 @@ WT1	TCGA-AB-2989-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	D
 MICAL2	TCGA-AB-2857-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 LRIT1	TCGA-AB-2857-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 GPBP1	TCGA-AB-2989-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
-NPM1	TCGA-AB-2989-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2989-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 ARL6IP1	TCGA-AB-2894-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 MMP25	TCGA-AB-2857-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CSMD3	TCGA-AB-2857-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
@@ -657,7 +657,7 @@ KLK7	TCGA-AB-2992-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 C9orf78	TCGA-AB-2806-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 HCN1	TCGA-AB-2806-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 OR4B1	TCGA-AB-2806-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
-NPM1	TCGA-AB-2992-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2992-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 OPRM1	TCGA-AB-2806-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 AMOT	TCGA-AB-2992-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 SLC24A3	TCGA-AB-2992-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -727,7 +727,7 @@ ZC3H18	TCGA-AB-2972-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 CKAP4	TCGA-AB-2910-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 DNAH5	TCGA-AB-2972-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 AFF4	TCGA-AB-2910-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2972-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2972-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 ATP1B4	TCGA-AB-2972-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 SK681	TCGA-AB-2972-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 SRSF6	TCGA-AB-2972-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -807,7 +807,7 @@ TM7SF4	TCGA-AB-3009-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 MYEOV	TCGA-AB-3009-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 XKR4	TCGA-AB-2959-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
 IDH2	TCGA-AB-2959-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NPM1	TCGA-AB-2976-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2976-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 KCNQ3	TCGA-AB-2976-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 SSX3	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 FAM127B	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -816,9 +816,9 @@ PSG8	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 C9orf171	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 DERL3	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 UGCG	TCGA-AB-2985-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
-NRAS	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 CSPG4	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
-NRAS	TCGA-AB-2985-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2985-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 MED14	TCGA-AB-2976-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 TUBGCP5	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 OR4C15	TCGA-AB-2976-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -847,7 +847,7 @@ FAM5C	TCGA-AB-2976-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 HMGXB4	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 FLT3	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 CAMK1G	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 OR8H2	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PHF6	TCGA-AB-2976-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 TGM6	TCGA-AB-2816-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
@@ -902,11 +902,11 @@ SOS1	TCGA-AB-2990-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 ZNF462	TCGA-AB-2990-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 IDH1	TCGA-AB-2990-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 LIPC	TCGA-AB-2990-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NPM1	TCGA-AB-2990-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2990-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 LAMA5	TCGA-AB-2990-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 EPB41L5	TCGA-AB-2990-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 CALB2	TCGA-AB-2990-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
-NPM1	TCGA-AB-2988-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2988-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 ABCA10	TCGA-AB-2988-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 BAAT	TCGA-AB-2988-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 CDH4	TCGA-AB-2988-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -962,7 +962,7 @@ SCRT2	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 APC	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CEBPA	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 TSG101	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
+NPM	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 TTC17	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 CCDC73	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 FAM65A	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -975,7 +975,7 @@ HADH	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 WT1	TCGA-AB-2930-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 KANK1	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 WT1	TCGA-AB-2930-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
-NPM1	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 GREB1_ENST00000381486	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 USP36	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
 ZSCAN5A	TCGA-AB-2930-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
@@ -985,7 +985,7 @@ SLC9A10	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaem
 WT1	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Reported in another cancer sample as somatic
 FLT3	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 C2orf71	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-2931-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2931-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 SPEN	TCGA-AB-2900-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CAMK2B	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 EPHA10	TCGA-AB-2827-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -1029,7 +1029,7 @@ TSHZ3	TCGA-AB-2810-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 CEP128	TCGA-AB-2841-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 SYNGR4	TCGA-AB-2810-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 CLDN14	TCGA-AB-2810-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2810-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2810-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 CADPS	TCGA-AB-2810-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 FCHSD1	TCGA-AB-2810-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 DNAJC11	TCGA-AB-2804-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -1059,10 +1059,10 @@ PHIP	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 FAM57B	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Confirmed somatic variant
 OR8A1	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 GRIP1	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
-NRAS	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 RAD21	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 LRRC2	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NPM1	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 COLQ	TCGA-AB-2967-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
 FKTN	TCGA-AB-2907-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Confirmed somatic variant
 GDF10	TCGA-AB-2907-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -1111,7 +1111,7 @@ TP73	TCGA-AB-3002-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 KCNQ2	TCGA-AB-3002-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Confirmed somatic variant
 NCR1	TCGA-AB-3002-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
 OR1J2	TCGA-AB-3002-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NRAS	TCGA-AB-2923-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2923-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 DRD2	TCGA-AB-3002-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 MYO1F	TCGA-AB-3002-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Confirmed somatic variant
 MBOAT1	TCGA-AB-2923-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
@@ -1173,7 +1173,7 @@ FAM90A1	TCGA-AB-2823-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaem
 CDK13	TCGA-AB-2870-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
 APBA2	TCGA-AB-2870-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 DDX11	TCGA-AB-2823-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
-NRAS	TCGA-AB-2870-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
+RASN	TCGA-AB-2870-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 FGL2	TCGA-AB-2982-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 NAGPA	TCGA-AB-2870-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 OR10W1	TCGA-AB-2870-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -1239,7 +1239,7 @@ HMCN1	TCGA-AB-2840-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 LRBA	TCGA-AB-2840-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 TRIM73	TCGA-AB-2840-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CELSR2	TCGA-AB-2840-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-2848-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2848-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 OR5H6	TCGA-AB-2840-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - In frame	Reported in another cancer sample as somatic
 OR10G9	TCGA-AB-2840-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 SERPINA12	TCGA-AB-2943-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -1339,7 +1339,7 @@ PIK3CB	TCGA-AB-2938-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 UGT2B4	TCGA-AB-2938-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 NPTXR	TCGA-AB-2938-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CCZ1	TCGA-AB-2938-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-2809-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2809-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 TP53	TCGA-AB-2938-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
 CAMSAP1	TCGA-AB-2938-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 DNMT3A	TCGA-AB-2938-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
@@ -1359,7 +1359,7 @@ ABCF1	TCGA-AB-2920-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 CBX7	TCGA-AB-2920-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 ARHGEF1	TCGA-AB-2920-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 VARS2	TCGA-AB-2920-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-2825-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2825-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 NF1	TCGA-AB-2920-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 CBX7	TCGA-AB-2920-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 MAL	TCGA-AB-2920-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -1386,7 +1386,7 @@ FLRT2	TCGA-AB-2986-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 RBM41	TCGA-AB-2986-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 INS	TCGA-AB-2979-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 KRT79	TCGA-AB-2986-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NPM1	TCGA-AB-2986-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2986-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 RNASE9	TCGA-AB-2986-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 FLT3	TCGA-AB-2986-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - In frame	Variant of unknown origin
 TRIM36	TCGA-AB-2979-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
@@ -1424,17 +1424,17 @@ MYBL2	TCGA-AB-2997-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 PRPF8	TCGA-AB-2904-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 DDX11	TCGA-AB-2904-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
 MUC16	TCGA-AB-2904-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-3011-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-3011-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 CUL3	TCGA-AB-2997-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 TPTE2	TCGA-AB-2997-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 VIP	TCGA-AB-3011-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NRAS	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 LTA4H	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 PCDHA6	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 IDH1	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 SRRM1	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 CDC42	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NPM1	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 FREM2	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 CEP170	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - In frame	Confirmed somatic variant
 ANKRD26	TCGA-AB-2984-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -1470,7 +1470,7 @@ SMC1A	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 RAB23	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PCDHB15	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PCDHB15	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 NR1H4	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
 ERBB3	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 MDH1B	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
@@ -1478,7 +1478,7 @@ PCM1	TCGA-AB-2824-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 RUNX1	TCGA-AB-2933-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 CPSF3L	TCGA-AB-2879-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 TET2	TCGA-AB-2879-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Reported in another cancer sample as somatic
-NPM1	TCGA-AB-2879-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2879-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 FLT3	TCGA-AB-2879-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - In frame	Variant of unknown origin
 TET2	TCGA-AB-2879-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
 TRPM3	TCGA-AB-2879-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -1500,7 +1500,7 @@ WNK1	TCGA-AB-2926-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 RBBP4	TCGA-AB-2926-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 DDX53	TCGA-AB-2926-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 ZNF642	TCGA-AB-2926-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2965-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2965-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 VIPR1	TCGA-AB-2965-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 EFTUD1	TCGA-AB-2965-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 ZNF689	TCGA-AB-2965-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -1568,12 +1568,12 @@ COL1A1	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 VPRBP	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 RALGAPA2	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 OR5AS1	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
+NPM	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 TGFBI	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 SLC39A5	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 CACNA2D4	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 ZNF835	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NRAS	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 PCDHAC1	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CNTN6	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 DNMT3A	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
@@ -1591,15 +1591,15 @@ PCBP3	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 IGSF5	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 SOHLH1	TCGA-AB-2969-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 TM6SF1	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-2969-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
-NPM1	TCGA-AB-2969-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2969-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2969-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 CEBPA	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
 C2orf18	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 KDR	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 IL27RA	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
 DSC2	TCGA-AB-2839-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 IDH1	TCGA-AB-2969-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NPM1	TCGA-AB-2903-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2903-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 WT1	TCGA-AB-2874-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 MAP1B	TCGA-AB-3006-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 TET2	TCGA-AB-3006-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Confirmed somatic variant
@@ -1676,7 +1676,7 @@ MPRIP	TCGA-AB-2834-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 ARL6	TCGA-AB-2834-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Variant of unknown origin
 ADAMTS19	TCGA-AB-2834-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 FLT3	TCGA-AB-2818-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NPM1	TCGA-AB-2818-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2818-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 FLT3	TCGA-AB-2834-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 RAD21	TCGA-AB-2975-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
 CEBPA	TCGA-AB-3000-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
@@ -1699,7 +1699,7 @@ SLC12A3	TCGA-AB-2812-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaem
 PVRL2	TCGA-AB-2812-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - In frame	Variant of unknown origin
 RASGEF1A	TCGA-AB-2812-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 ADRBK1	TCGA-AB-2911-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Variant of unknown origin
-NPM1	TCGA-AB-2812-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2812-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 TNNC2	TCGA-AB-2812-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CNTN5	TCGA-AB-2812-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 FAM47C	TCGA-AB-2911-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -1708,7 +1708,7 @@ PPP1R3A	TCGA-AB-2812-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaem
 SLC25A25	TCGA-AB-2911-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PARP4	TCGA-AB-2812-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 MYH15	TCGA-AB-2911-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-KRAS	TCGA-AB-2911-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
+RASK	TCGA-AB-2911-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 RUNX1	TCGA-AB-2936-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Reported in another cancer sample as somatic
 ARHGEF11	TCGA-AB-2838-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 TBC1D21	TCGA-AB-2838-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -1717,7 +1717,7 @@ PLXNB1	TCGA-AB-2838-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 C7orf10	TCGA-AB-2936-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CUL1	TCGA-AB-2838-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CAMK4	TCGA-AB-2936-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
-NRAS	TCGA-AB-2838-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASN	TCGA-AB-2838-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 KLHL18	TCGA-AB-2838-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 NXF2B	TCGA-AB-2936-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 RFC3	TCGA-AB-2838-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -1761,7 +1761,7 @@ TRIM45	TCGA-AB-2952-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 CEBPA	TCGA-AB-2952-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
 C8orf80	TCGA-AB-2952-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CCDC60	TCGA-AB-2991-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
-KRAS	TCGA-AB-2864-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
+RASK	TCGA-AB-2864-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 HNRNPA1L2	TCGA-AB-2864-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 PZP	TCGA-AB-2864-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 LPO	TCGA-AB-2864-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -1841,12 +1841,12 @@ KLF15	TCGA-AB-2877-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 TP53	TCGA-AB-2829-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 RUNX1	TCGA-AB-2865-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 EEA1	TCGA-AB-2877-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2877-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2877-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 FLRT1	TCGA-AB-2877-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 RBM44	TCGA-AB-2829-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 IGSF9B_ENST00000321016	TCGA-AB-2877-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 OPLAH	TCGA-AB-2829-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
-KRAS	TCGA-AB-2865-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
+RASK	TCGA-AB-2865-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 CSPG4	TCGA-AB-2877-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 SLC27A3	TCGA-AB-2865-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
 SMG1	TCGA-AB-2877-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
@@ -2132,7 +2132,7 @@ WAC	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	S
 SFXN2	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 OSBPL5	TCGA-AB-2862-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 RGS8	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
-NPM1	TCGA-AB-2947-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2947-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 TMEM41B	TCGA-AB-2862-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 TOP3B	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 GPR98	TCGA-AB-2862-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -2155,7 +2155,7 @@ FLT3	TCGA-AB-2947-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 LOC220686	TCGA-AB-2862-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - In frame	Variant of unknown origin
 SMG1	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 DNMT3A	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Confirmed somatic variant
-KRAS	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASK	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 AP1M1	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 PI4KAP2	TCGA-AB-2862-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - In frame	Variant of unknown origin
 RAB36	TCGA-AB-2966-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
@@ -2184,13 +2184,13 @@ DNMT3A	TCGA-AB-2867-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 IDH1	TCGA-AB-2867-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 OR2M3	TCGA-AB-2867-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
 SHQ1	TCGA-AB-2999-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-KRAS	TCGA-AB-2987-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
+RASK	TCGA-AB-2987-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 COL11A2	TCGA-AB-2999-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 NID2	TCGA-AB-2867-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 USP7	TCGA-AB-2867-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Variant of unknown origin
 PDGFRA	TCGA-AB-2987-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 PCSK9	TCGA-AB-2867-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - In frame	Reported in another cancer sample as somatic
-NPM1	TCGA-AB-2987-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2987-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 UNC5B	TCGA-AB-2999-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 ABL1	TCGA-AB-2999-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 ENC1	TCGA-AB-2987-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -2248,7 +2248,7 @@ RIF1	TCGA-AB-2919-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 CALR	TCGA-AB-2897-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Variant of unknown origin
 UBP1	TCGA-AB-2919-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CYP21A2	TCGA-AB-2802-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2802-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
+NPM	TCGA-AB-2802-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 ASTE1	TCGA-AB-2980-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
 MUC17	TCGA-AB-2815-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 SLC5A6	TCGA-AB-2847-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -2289,14 +2289,14 @@ MAP7D2	TCGA-AB-2919-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemi
 DNMT3A	TCGA-AB-2919-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 MYBPHL	TCGA-AB-2919-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 CFTR	TCGA-AB-2847-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2919-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2919-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 IL4I1	TCGA-AB-2815-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 SLC12A3	TCGA-AB-2847-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 SEPX1	TCGA-AB-2897-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 TBX15	TCGA-AB-2802-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 RBKS	TCGA-AB-2980-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 TGM7	TCGA-AB-2815-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-2802-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
+NPM	TCGA-AB-2802-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 LRP1B	TCGA-AB-2847-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 MLLT4	TCGA-AB-2897-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 IDH1	TCGA-AB-2802-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -2317,7 +2317,7 @@ CUL9	TCGA-AB-2891-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 GALNTL4	TCGA-AB-2915-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 AIFM2	TCGA-AB-2915-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 EPHA10	TCGA-AB-2891-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2915-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
+NPM	TCGA-AB-2915-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 FAM57B	TCGA-AB-2981-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 MAP6	TCGA-AB-2891-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 GDPD5	TCGA-AB-2996-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -2350,7 +2350,7 @@ DOT1L	TCGA-AB-2915-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 C11orf70	TCGA-AB-2891-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CLPX	TCGA-AB-2891-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 FLT3	TCGA-AB-2915-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - In frame	Variant of unknown origin
-NPM1	TCGA-AB-2981-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2981-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 TCEAL1	TCGA-AB-2915-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 GABRB1	TCGA-AB-2891-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 ZDHHC11	TCGA-AB-2981-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Confirmed somatic variant
@@ -2373,8 +2373,8 @@ TEKT4	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 OR2Y1	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
 RBM22	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PTCH1	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
-NPM1	TCGA-AB-2896-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2896-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 CTSZ	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 HLA-B	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Reported in another cancer sample as somatic
 TKTL2	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
@@ -2385,7 +2385,7 @@ USP24	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 DENND5B	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 FLT3	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 SLC39A5	TCGA-AB-2896-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
-NPM1	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 CSRNP2	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CMYA5	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 STK32B	TCGA-AB-2811-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
@@ -2518,7 +2518,7 @@ ADAMTS17	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukae
 DOCK2	TCGA-AB-2895-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Variant of unknown origin
 SH3TC2	TCGA-AB-2895-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 DHX32	TCGA-AB-2895-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 ARSD	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 MYH2	TCGA-AB-2895-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 EGLN2	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
@@ -2537,7 +2537,7 @@ FLT3	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	
 ALPK3	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 FREM2	TCGA-AB-2895-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 MST1	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Unknown	Reported in another cancer sample as somatic
-NPM1	TCGA-AB-2895-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2895-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 LDLRAD3	TCGA-AB-2895-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 TUBG2	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PLIN1	TCGA-AB-2913-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -2566,12 +2566,12 @@ HDAC2	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 COL6A2	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 MEFV	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 ACADS	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 OPLAH	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - Frameshift	Variant of unknown origin
 NOMO2	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 B4GALT3	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Reported in another cancer sample as somatic
 TUSC3	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
-KRAS	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
+RASK	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 MIB1	TCGA-AB-2861-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia		
 NINL	TCGA-AB-2884-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Deletion - In frame	Variant of unknown origin
 MYH6	TCGA-AB-2955-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Nonsense	Variant of unknown origin
@@ -2593,7 +2593,7 @@ CEBPA	TCGA-AB-2955-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 GATA2	TCGA-AB-2955-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 CCL16	TCGA-AB-2955-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 NBAS	TCGA-AB-2955-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
-NPM1	TCGA-AB-2884-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2884-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 PCDHA1	TCGA-AB-2955-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 TAS1R1	TCGA-AB-2955-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 IDH1	TCGA-AB-2884-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
@@ -2617,13 +2617,13 @@ STAG2	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 PROM1	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 ATG14	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 VPS13C	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2974-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2974-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 OR13C5	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 FLT3	TCGA-AB-2974-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 SLC25A24	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 PTPN11	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 FLT3	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - In frame	Variant of unknown origin
-NPM1	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
+NPM	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Reported in another cancer sample as somatic
 NBEA	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 DNMT3A	TCGA-AB-2974-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
 TMEM55A	TCGA-AB-2871-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -2634,7 +2634,7 @@ HSPA4	TCGA-AB-2835-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 DDX11	TCGA-AB-2892-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 RAPH1	TCGA-AB-2835-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 LILRA3	TCGA-AB-2892-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
-NPM1	TCGA-AB-2835-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2835-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 DUS1L	TCGA-AB-2892-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 ACTR3B	TCGA-AB-2835-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 PSPC1	TCGA-AB-2835-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
@@ -2653,9 +2653,9 @@ FBXL7	TCGA-AB-2977-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia
 RASGRP4	TCGA-AB-2892-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 EPB41L3	TCGA-AB-2892-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 PLCH2	TCGA-AB-2977-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Confirmed somatic variant
-NRAS	TCGA-AB-2892-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
+RASN	TCGA-AB-2892-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
 BCMO1	TCGA-AB-2924-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2924-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
+NPM	TCGA-AB-2924-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Variant of unknown origin
 DMRT3	TCGA-AB-2924-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PPAP2A	TCGA-AB-2924-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 KRT27	TCGA-AB-2924-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Reported in another cancer sample as somatic
@@ -2667,7 +2667,7 @@ NBEAL1_ENST00000449802	TCGA-AB-2945-03	haematopoietic_and_lymphoid_tissue	acute_
 NBEAL1	TCGA-AB-2945-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 GLB1L2	TCGA-AB-2945-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 ADAMTS12	TCGA-AB-2945-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
-NPM1	TCGA-AB-2945-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
+NPM	TCGA-AB-2945-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Insertion - Frameshift	Confirmed somatic variant
 SDR42E1	TCGA-AB-2945-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
 PEPD	TCGA-AB-2945-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - coding silent	Variant of unknown origin
 TRAM1L1	TCGA-AB-2945-03	haematopoietic_and_lymphoid_tissue	acute_myeloid_leukaemia	Substitution - Missense	Variant of unknown origin
